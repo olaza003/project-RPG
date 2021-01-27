@@ -6,7 +6,6 @@
  
   Authors: [Orlean Lazaro](https://github.com/olaza003), [Ryan DeMello](https://github.com/rdemello7300), [Rudy Mendoza](https://github.com/UrbanCoffee)
  
- > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list and decide which design patterns you will use to implement it. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
  
  > ## Expectations
  > * Incorporate **at least two** distinct design patterns. You need to include at least *one* design pattern that we will teach this session:
@@ -19,11 +18,14 @@
 
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
+  * Why is it important or interesting to you?
+     *
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
  > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
+  * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
+  * Decorator: 
+     * The decorator pattern is flexible to create an alternative for subclassing to extend its functionality. We can use this by extending a base class for weapons which we   will extend to add ornaments that enhance its capabilities (basically attachments). This project would require better stats to defeat certain enemies in which the decorator pattern would give users better flexibility to defeat them. The decorator can further enhance user abilities throughout the game. 
  >   * Why you picked this pattern and what feature you will implement with it
  >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
  >   * Why the chosen design pattern will lead to a good solution to that problem
