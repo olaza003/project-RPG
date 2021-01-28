@@ -5,10 +5,20 @@
 
 ## Project Description
   * Why is it important or interesting to you?
-     *asad
+     * We are all familiar with video games and how role-playing games work. We will be more invested in the project since we can all relate to the idea more, and we can be   creative with what different features we add. We also have experience in knowing what makes a game fun and engaging, as well as how certain features are generally implemented. 
 
-  * Decorator: 
-     * The decorator pattern is flexible to create an alternative for subclassing to extend its functionality. We can use this by extending a base class for weapons which we   will extend to add ornaments that enhance its capabilities (basically attachments). This project would require better stats to defeat certain enemies in which the decorator pattern would give users better flexibility to defeat them. The decorator can further enhance user abilities throughout the game. 
+* What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+  * C++ - The language we are the most familiar with.
+  
+* What will be the input/output of your project?
+  * Input: Text Commands (“attack”, “check bag”, “run”)
+  * Output: Results of each command and battle
+  
+Two pattern design we'll be using is: 
+* Composite: 
+  * In an rpg, most objects and characters follow the same formula. For instance, characters and weapons will most likely derive from an abstract base class. So when it comes to implementing new features, rather than create an entirely new class for the one particular object, it will be much easier to have that object derive from the abstract class. Therefore, the use of a composite design pattern allows for more streamline implementation of similar objects and entities.
+ * Decorator: 
+    * The decorator pattern is flexible to create an alternative for subclassing to extend its functionality. We can use this by extending a base class for weapons which we   will extend to add ornaments that enhance its capabilities (basically attachments). This project would require better stats to defeat certain enemies in which the decorator pattern would give users better flexibility to defeat them. The decorator can further enhance user abilities throughout the game. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
