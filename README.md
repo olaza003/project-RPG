@@ -4,17 +4,15 @@
  
 
 ## Project Description
-  * Why is it important or interesting to you?
-     * We are all familiar with video games and how role-playing games work. We will be more invested in the project since we can all relate to the idea more, and we can be   creative with what different features we add. We also have experience in knowing what makes a game fun and engaging, as well as how certain features are generally implemented. 
+* We are all familiar with video games and how role-playing games work. We will be more invested in the project since we can all relate to the idea more, and we can be   creative with what different features we add. We also have experience in knowing what makes a game fun and engaging, as well as how certain features are generally implemented. 
 
-* What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+* Tools we'll be using:
   * C++ - The language we are the most familiar with.
   
-* What will be the input/output of your project?
-  * Input: Text Commands (“attack”, “check bag”, “run”)
-  * Output: Results of each command and battle
+* Input: Text Commands (“attack”, “check bag”, “run”)
+* Output: Results of each command and battle
   
-Two pattern design we'll be using is: 
+Design Patterns: 
 * Composite: 
   * In an rpg, most objects and characters follow the same formula. For instance, characters and weapons will most likely derive from an abstract base class. So when it comes to implementing new features, rather than create an entirely new class for the one particular object, it will be much easier to have that object derive from the abstract class. Therefore, the use of a composite design pattern allows for more streamline implementation of similar objects and entities.
  * Decorator: 
