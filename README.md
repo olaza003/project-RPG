@@ -18,6 +18,8 @@ Design Patterns:
  * Decorator: 
     * The decorator pattern is flexible to create an alternative for subclassing to extend its functionality. Without using the decorator pattern, we would have to write a lot more code than is necessary, writing whole classes for the same weapon that only has one extra attachment, instead of just adding the attachment to one class. So sword would have its own class and wooden sword and silver sword would have their own classes too when they don't need to, or like a sharper sword or a sword with a better hilt on it. Each addition would require a new class for the entire weapon. But with the decorator pattern, we can just make new classes for the attachments themselves instead of the whole weapon. We can use this by extending a base class for weapons which we will extend to add ornaments that enhance its capabilities (basically attachments). This project would require better stats to defeat certain enemies in which the decorator pattern would give users better flexibility to defeat them. The decorator can further enhance user abilities throughout the game. 
 
+![example project diagram](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project_Diagrams.png?raw=true)
+
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
