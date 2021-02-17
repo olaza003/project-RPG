@@ -18,19 +18,7 @@ Design Patterns:
  * Decorator: 
     * The decorator pattern is flexible to create an alternative for subclassing to extend its functionality. Without using the decorator pattern, we would have to write a lot more code than is necessary, writing whole classes for the same weapon that only has one extra attachment, instead of just adding the attachment to one class. So sword would have its own class and wooden sword and silver sword would have their own classes too when they don't need to, or like a sharper sword or a sword with a better hilt on it. Each addition would require a new class for the entire weapon. But with the decorator pattern, we can just make new classes for the attachments themselves instead of the whole weapon. We can use this by extending a base class for weapons which we will extend to add ornaments that enhance its capabilities (basically attachments). This project would require better stats to defeat certain enemies in which the decorator pattern would give users better flexibility to defeat them. The decorator can further enhance user abilities throughout the game. 
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to 
- > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
- >   * Backlog, TODO, In progress, In testing, Done
- >   * You can change these or add more if you'd like, but we should be able to identify at least these.
- > * There is no requirement for automation in the project board but feel free to explore those options.
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller development tasks as issues and assign them to team members. Place these in the `Backlog` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
- > 
 ![example project diagram](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project_Diagrams.png?raw=true)
 * The following image above is the project diagram that represents the character interface. Since this is a text-based RPG, portions of the game remain adaptable to the player's choice and gameplay. The portion of the diagram that is connected with red lines outlines the Strategy Pattern of the project which involves changing how the character operates depending on the player. Depending on what character type they choose, algorithms such as *attack* will also dynamically change along with it. The other portion of the diagram where the classes are connected with green lines represent the Decorative Pattern. Here, each item can be modified, or decorated, with an additional enchantment class to therefore create a combined object of the two.
    
