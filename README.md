@@ -26,8 +26,8 @@ Design Patterns:
  
 * As for the Decorator Pattern, it will have items class under it. In which would have an abstract weapon and consumable inheriting from it. Further down the weapon class would have types of weapons such as wand, sword, and bow be used by unique characters. As for consumables, since they will have limited uses, an int-variable would be used to indicate when they should be used up. 
 
-   
- > ## Phase III
+  
+ <!--- ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
  > * In the meeting with your TA you will discuss: 
@@ -35,7 +35,7 @@ Design Patterns:
  >   - Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
  >   - Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
  >   - What tasks you are planning for this next sprint.
-
+    -->
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:
