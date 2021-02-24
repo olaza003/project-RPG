@@ -3,112 +3,44 @@
 
 #include "attacks.hpp"
 
-class Character;
-class Monster;
-
-class Entity
-{
-   protected:
-	int health;
-	int strength;
-   public:
-	virtual ~Entity() = default;
-	
-	void setHealth(int damage)
-        {
-                health = health - damage;
-        }
-
-        int getHealth()
-        {
-                return health;
-        }
-
-
-	void setStrength(int newStrength)
-	{
-		strength = newStrength;
-	}
-
-	int getStrength()
-	{
-		return strength;
-	}
-
-	virtual void attack(Character* player, Monster* enemy) = 0;
+class Entity {
+    protected:
+        int health;
+        int strength;
+    public:
+        void setHealth(int damage){ health -= damage;}
+        int getHealth() {return health;}
+        void setStrength(int newStrength){strength = newStrength;}
+        int getStrength(){return strength;}
+        virtual void attack(Entity*) = 0; //calculates how much damage to give to enemy
+        virtual void takeAttack(int) = 0; //calculates how much of the above damage to intake
 };
 
-class Monster: public Entity
-{
-   public:
-	Monster(h, st)
-	{
-		health = h;
-		strength = st;
-	}
-
-        void attack(Character* player, Monster* enemy)
-	{
-		player -> setHealth(enemy -> getStrength());
-	}
+class Monster : public Entity {
+    private:
+        void takeAttack(int damage) {setHealth(damage);}
+    public:
+        Monster(int h = 100, int s = 10){health = h; strength = s;}
+        void attack(Entity* enemy){
+            enemy->takeAttack( this->getStrength() );
+        }
 };
 
-class Character: public Entity
-{
-   private:
+class Character : public Entity {
+    private:
         int defense;
         int speed;
-	CharacterAttack* selectAttack = nullptr;
-   public:
-	Character()
-	{
-		health = 100;
-		strength = 10;
-		defense = 5;
-		speed = 5;
-	}
-
-	~Character()
-	{
-		delete selectAttack;
-	}
-
-        void setDefense(int newDefense)
-        {
-                defense = newDefense;
-        }
-
-        int getDefense()
-        {
-                return defense;
-        }
-
-	void setSpeed(int newSpeed)
-        {
-                speed = newSpeed;
-        }
-
-        int getSpeed()
-        {
-                return speed;
-        }
-
-	void setAttack(CharacterAttack* attackType)
-	{
-		delete selectAttack;
-		selectAttack = attackType;
-	}
-
-	CharacterAttack* getAttack()
-	{
-		return selectAttack;
-	}
-
-        void attack(Character* player, Monster* enemy)
-	{
-		selectAttack = player -> getAttack();
-		enemy -> setHealth(selectAttack -> attack(player, enemy);
-	}
+        CharacterAttack* attackType = nullptr;
+        void takeAttack(int);
+    public:
+        Character();
+        ~Character();
+        void setDefense(int a){ defense = a; }
+        int getDefense(){ return defense; }
+        void setSpeed(int a){ speed = a; }
+        int getSpeed(){ return speed; }
+        void setAttackType(CharacterAttack*);
+        void attack(Entity*);
 };
 
 #endif //__ENTITIES_HPP__

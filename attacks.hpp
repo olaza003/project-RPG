@@ -3,46 +3,31 @@
 
 #include "entities.hpp"
 
+class Character;
+
 class CharacterAttack
 {
    public:
 	virtual ~CharacterAttack() = default;
-
-	virtual int attack(Character* player, Monster* enemy) = 0;
-
+	virtual int attack(Character*) = 0;
 };
 
 class WarriorAttack: public CharacterAttack
 {
    public:
-	int attack(Character* player, Monster* enemy)
-	{
-		int damage = player -> getStrength();
-		damage += enemy -> getStrength();
-		return damage;
-	}
+	int attack(Character*);
 };
 
 class KnightAttack: public CharacterAttack
 {
    public:
-        int attack(Character* player, Monster* enemy)
-        {
-                int damage = player -> getStrength();
-                damage += player -> getDefense();
-                return damage;
-        }
+        int attack(Character*);
 };
 
 class HunterAttack: public CharacterAttack
 {
    public:
-        int attack(Character* player, Monster* enemy)
-        {
-                int damage = player -> getStrength();
-                damage += player -> getSpeed();
-                return damage;
-        }
+        int attack(Character*);
 };
 
 #endif //__ATTACKS_HPP__
