@@ -8,20 +8,22 @@ int main()
 {
    //sword
    Item* weaponSword = new Weapon();
-   cout << weaponSword -> getDescription(cout) << endl;
-   
-   weaponSword = new Sword(weaponSword);
+  // Item* temp = new Weapon();
    cout << weaponSword -> getDescription(cout) << endl;
 
+   Item* temp  = new Sword(weaponSword);
+   cout << weaponSword -> getDescription(cout) << endl;
+    delete temp;
    //bow
    Item* weaponBow = new Weapon();
-   weaponBow = new Bow(weaponBow);
-   cout << weaponBow -> getDescription(cout) << endl;
-
+   temp = new Bow(weaponBow);
+   cout << temp -> getDescription(cout) << endl;
+   delete temp;
    //wand
    Item* weaponWand = new Weapon();
-   weaponWand = new Wand(weaponWand);
-   cout << weaponWand -> getDescription(cout) << endl;
+   temp = new Wand(weaponWand);
+   cout << temp -> getDescription(cout) << endl;
+   delete temp;
 
    //potion
    Potion* potion = new Potion();
@@ -30,5 +32,10 @@ int main()
    cout << potion -> use() << endl;
    potion -> NewPotion();
    cout << potion -> use() << endl;
+   
+   delete weaponSword;
+   delete weaponBow;
+   delete weaponWand;
+   delete potion;
    return 0;
 }

@@ -58,6 +58,11 @@ class Sword: public Item
             _itemSword -> setName("Sword");
             _itemSword -> setDamage(_itemSword -> getDamage() + 3);
         }
+
+	~Sword()
+	{
+	   delete _itemSword;
+	}
         
         int getDamage()
         {
@@ -87,6 +92,11 @@ class Bow: public Item
             _itemBow -> setName("Bow");
             _itemBow -> setDamage(_itemBow -> getDamage() + 4);
         }
+
+	~Bow()
+	{
+	    delete _itemBow;
+	}
         
         int getDamage()
         {
@@ -116,6 +126,11 @@ class Wand: public Item
             _itemWand -> setDamage(_itemWand -> getDamage() + 2);
         }
         
+	~Wand()
+	{
+	   delete _itemWand;
+	}
+
         int getDamage()
         {
             return _itemWand -> getDamage();

@@ -16,6 +16,11 @@ class Potion
         {
             potion = new Consumable();
         }
+
+	~Potion()
+	{
+	    delete potion;
+	}
         string use()
         {
             if(uses > 0){
