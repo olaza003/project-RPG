@@ -9,6 +9,7 @@ TEST(CharacterCreation, NewPlayer)
 	EXPECT_EQ(10, player -> getStrength());
 	EXPECT_EQ(5, player -> getDefense());
 	EXPECT_EQ(5, player -> getSpeed());
+	delete player;
 }
 
 TEST(CharacterCreation, NewMonster)
@@ -16,6 +17,7 @@ TEST(CharacterCreation, NewMonster)
         Entity* enemy = new Monster();
         EXPECT_EQ(100, enemy -> getHealth());
         EXPECT_EQ(10, enemy -> getStrength());
+	delete enemy;
 }
 
 TEST(Mutators, SetHealth)
@@ -26,6 +28,8 @@ TEST(Mutators, SetHealth)
 	enemy -> setHealth(10);
 	EXPECT_EQ(90, player -> getHealth());
 	EXPECT_EQ(90, enemy -> getHealth());
+	delete player;
+	delete enemy;
 }
 
 TEST(Mutators, SetStrength)
@@ -36,6 +40,8 @@ TEST(Mutators, SetStrength)
         enemy -> setStrength(20);
         EXPECT_EQ(15, player -> getStrength());
         EXPECT_EQ(20, enemy -> getStrength());
+	delete player;
+	delete enemy;
 }
 
 TEST(Mutators, SetDefense)
@@ -43,6 +49,7 @@ TEST(Mutators, SetDefense)
         Character* player = new Character();
         player -> setDefense(15);
         EXPECT_EQ(15, player -> getDefense());
+	delete player;
 }
 
 TEST(Mutators, SetSpeed)
@@ -50,6 +57,7 @@ TEST(Mutators, SetSpeed)
         Character* player = new Character();
         player -> setSpeed(10);
         EXPECT_EQ(10, player -> getSpeed());
+	delete player;
 }
 
 TEST(Attacks, MonsterAttack)
@@ -58,6 +66,8 @@ TEST(Attacks, MonsterAttack)
 	Entity* enemy = new Monster();
 	enemy -> attack(player);
 	EXPECT_EQ(95, player -> getHealth());
+	delete player;
+	delete enemy;
 }
 
 TEST(Attacks, MonsterAttackModified)
@@ -67,6 +77,8 @@ TEST(Attacks, MonsterAttackModified)
 	enemy -> setStrength(20);
         enemy -> attack(player);
         EXPECT_EQ(85, player -> getHealth());
+	delete player;
+	delete enemy;	
 }
 
 TEST(Attacks, WarriorAttack)
@@ -76,6 +88,8 @@ TEST(Attacks, WarriorAttack)
 	player -> setAttackType(new WarriorAttack());
 	player -> attack(enemy);
 	EXPECT_EQ(88, enemy -> getHealth());
+	delete player;
+        delete enemy;
 }
 
 TEST(Attacks, WarriorAttackModified)
@@ -86,6 +100,8 @@ TEST(Attacks, WarriorAttackModified)
 	player -> setStrength(13);
         player -> attack(enemy);
         EXPECT_EQ(85, enemy -> getHealth());
+	delete player;
+        delete enemy;
 }
 
 TEST(Attacks, KnightAttack)
@@ -95,6 +111,8 @@ TEST(Attacks, KnightAttack)
         player -> setAttackType(new KnightAttack());
         player -> attack(enemy);
         EXPECT_EQ(92, enemy -> getHealth());
+	delete player;
+        delete enemy;
 }
 
 TEST(Attacks, KnightAttackModified)
@@ -105,6 +123,8 @@ TEST(Attacks, KnightAttackModified)
         player -> setDefense(10);
         player -> attack(enemy);
         EXPECT_EQ(95, enemy -> getHealth());
+	delete player;
+        delete enemy;
 }
 
 TEST(Attacks, HunterAttack)
@@ -114,6 +134,8 @@ TEST(Attacks, HunterAttack)
         player -> setAttackType(new HunterAttack());
         player -> attack(enemy);
         EXPECT_EQ(88, enemy -> getHealth());
+	delete player;
+        delete enemy;
 }
 
 TEST(Attacks, HunterAttackModified)
@@ -124,6 +146,8 @@ TEST(Attacks, HunterAttackModified)
         player -> setSpeed(10);
         player -> attack(enemy);
         EXPECT_EQ(85, enemy -> getHealth());
+	delete player;
+        delete enemy;
 }
 
 
