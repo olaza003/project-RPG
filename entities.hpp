@@ -1,7 +1,10 @@
 #ifndef __ENTITIES_HPP__
 #define __ENTITIES_HPP__
 
+#include <string>
 #include "attacks.hpp"
+
+using namespace std;
 
 class Entity {
     protected:
@@ -31,6 +34,7 @@ class Character : public Entity {
         int defense;
         int speed;
         CharacterAttack* attackType = nullptr;
+        string attackString;
         void takeAttack(int);
     public:
         Character();
@@ -40,6 +44,9 @@ class Character : public Entity {
         void setSpeed(int a){ speed = a; }
         int getSpeed(){ return speed; }
         void setAttackType(CharacterAttack*);
+        CharacterAttack* getAttackType() { return attackType; }
+        void setAttackString(string s){ attackString = s; }
+        string getAttackString(){ return attackString; }
         void attack(Entity*);
 };
 

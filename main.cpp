@@ -1,27 +1,65 @@
 #include "entities.hpp"
 #include "attacks.hpp"
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 
-int main() 
+/*
+void gameOver(Character* player, Monster* enemy)
 {
-    Character* player = new Character();
-    Entity* mob = new Monster();
-    player->setAttackType(new WarriorAttack());
+    if (battle(player, enemy) == true)
+    {
+        cout << "GAME OVER";
+        exit(0);
+    }
+    Upgrade(player);
+}
+ */
 
-    cout << "Monster stats: \n   Health: " << mob->getHealth() << endl << "   Strength: " << mob->getStrength() << endl;
-    cout << "Player  stats: \n   Health: " << player->getHealth() << endl << "   Strength: " << player->getStrength() << endl;
-    		    cout << "   Defense: " << player->getDefense() << endl << "   Speed: " << player->getSpeed() << endl;
+void CharacterCreation(Character* p)
+{
+    char menuOp;
+    cout << "Which character do you want to make?" << endl;
     
-    cout << "Player Health before attack: " << player->getHealth() << endl;
-    mob->attack(player); cout << ">> Monster attacks the player!\n";
-    cout << "Player Health after attack:  " << player->getHealth() << endl;
-    cout << "Monster Health before attack: " << mob->getHealth() << endl;
-    player->attack(mob); cout << ">> Player attacks the monster!\n";
-    cout << "Monster Health after attack:  " << mob->getHealth() << endl;
-
-    delete player;
-    return 0;
+    cout << "Warriors specialize in taking damage which will help with attacking" << endl;
+    cout << "Knights specialize in defense which will help with defending" << endl;
+    cout << "Hunters specialize in speed whihc will help with dodging" << endl;
+    
+    cout << "Type 'W' for Warrior" << endl;
+    cout << "Type 'K' for Knight" << endl;
+    cout << "Type 'H' for Hunter" << endl;
+    
+    
+    do
+    {
+        cin >> menuOp;
+        menuOp = toupper(menuOp);
+        
+        switch(menuOp)
+        {
+            case 'W' :
+                p -> setAttackType(new WarriorAttack());
+                p -> setAttackString("Warrior");
+                break;
+            case 'K' :
+                p -> setAttackType(new KnightAttack());
+                p -> setAttackString("Knight");
+                break;
+            case 'H' :
+                p -> setAttackType(new HunterAttack());
+                p -> setAttackString("Hunter");
+                break;
+            default : cout << "Invalid Character, try again:" << endl;
+        }
+    } while (menuOp != 'W' && menuOp != 'K' && menuOp != 'H');
 }
 
+int main()
+{
+    Character* player = new Character();
+    CharacterCreation(player);
+    cout << player -> getAttackString() << endl;
+    
+    return 0;
+}

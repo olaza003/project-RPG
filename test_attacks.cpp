@@ -14,7 +14,7 @@ TEST(CharacterCreation, NewPlayer)
 
 TEST(CharacterCreation, NewMonster)
 {
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         EXPECT_EQ(100, enemy -> getHealth());
         EXPECT_EQ(10, enemy -> getStrength());
 	delete enemy;
@@ -23,7 +23,7 @@ TEST(CharacterCreation, NewMonster)
 TEST(Mutators, SetHealth)
 {
 	Character* player = new Character();
-	Entity* enemy = new Monster();
+	Monster* enemy = new Monster();
 	player -> setHealth(10);
 	enemy -> setHealth(10);
 	EXPECT_EQ(90, player -> getHealth());
@@ -35,7 +35,7 @@ TEST(Mutators, SetHealth)
 TEST(Mutators, SetStrength)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         player -> setStrength(15);
         enemy -> setStrength(20);
         EXPECT_EQ(15, player -> getStrength());
@@ -63,7 +63,7 @@ TEST(Mutators, SetSpeed)
 TEST(Attacks, MonsterAttack)
 {
 	Character* player = new Character();
-	Entity* enemy = new Monster();
+	Monster* enemy = new Monster();
 	enemy -> attack(player);
 	EXPECT_EQ(95, player -> getHealth());
 	delete player;
@@ -73,7 +73,7 @@ TEST(Attacks, MonsterAttack)
 TEST(Attacks, MonsterAttackModified)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
 	enemy -> setStrength(20);
         enemy -> attack(player);
         EXPECT_EQ(85, player -> getHealth());
@@ -84,7 +84,7 @@ TEST(Attacks, MonsterAttackModified)
 TEST(Attacks, WarriorAttack)
 {
 	Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
 	player -> setAttackType(new WarriorAttack());
 	player -> attack(enemy);
 	EXPECT_EQ(88, enemy -> getHealth());
@@ -95,7 +95,7 @@ TEST(Attacks, WarriorAttack)
 TEST(Attacks, WarriorAttackModified)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
 	player -> setStrength(13);
         player -> attack(enemy);
@@ -107,7 +107,7 @@ TEST(Attacks, WarriorAttackModified)
 TEST(Attacks, KnightAttack)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         player -> setAttackType(new KnightAttack());
         player -> attack(enemy);
         EXPECT_EQ(92, enemy -> getHealth());
@@ -118,7 +118,7 @@ TEST(Attacks, KnightAttack)
 TEST(Attacks, KnightAttackModified)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         player -> setAttackType(new KnightAttack());
         player -> setDefense(10);
         player -> attack(enemy);
@@ -130,7 +130,7 @@ TEST(Attacks, KnightAttackModified)
 TEST(Attacks, HunterAttack)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         player -> setAttackType(new HunterAttack());
         player -> attack(enemy);
         EXPECT_EQ(88, enemy -> getHealth());
@@ -141,7 +141,7 @@ TEST(Attacks, HunterAttack)
 TEST(Attacks, HunterAttackModified)
 {
         Character* player = new Character();
-        Entity* enemy = new Monster();
+        Monster* enemy = new Monster();
         player -> setAttackType(new HunterAttack());
         player -> setSpeed(10);
         player -> attack(enemy);
