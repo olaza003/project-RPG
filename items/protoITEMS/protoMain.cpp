@@ -1,5 +1,6 @@
 #include <iostream>
 #include "protoITEMS.hpp"
+#include "protoENCHANT.hpp"
 
 using namespace std;
 
@@ -18,6 +19,11 @@ int main() {
         delete list[i];
     }
 
-    delete[] list;
+    Weapon* hi = new Sword();
+    hi = new FireEnchant_Wea(hi);
+    cout << hi->getDescription() << endl;
+
+    delete hi;
+
     return 0;
 }

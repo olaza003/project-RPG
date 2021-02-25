@@ -7,9 +7,11 @@ class Entity;
 class Item {
     protected:
         std::string name;
+        int itemType; //0 for weapons. 1 for Consumables.
     public:
         Item(std::string input = "No Name"): name(input) {};
         void setName(std::string input){name = input;}
+        int getItemType() {return itemType;}
         virtual std::string getName(){return name;}
         virtual std::string getType() = 0; //abstract function
         virtual std::string getDescription() = 0; //abstract function
@@ -19,7 +21,7 @@ class Weapon : public Item { //getDescription() is not overloaded. Weapon remain
     protected:
         int dmgVal;
     public:
-        Weapon(int Dmg, std::string name): Item(name), dmgVal(Dmg) {}
+        Weapon(int Dmg, std::string name): Item(name), dmgVal(Dmg) {itemType = 0;}
         void setDmg(int dmg){dmgVal = dmg;}
         virtual int getDmg(){return dmgVal;}
 };
@@ -28,7 +30,8 @@ class Consumable: public Item{ //getDescription is not overloaded. Adds new virt
     protected:
         int uses;
     public:
-        Consumable(int useInput, std::string nameInput): Item(nameInput), uses(useInput) {}
+        Consumable(int useInput, std::string nameInput): Item(nameInput), uses(useInput) {itemType = 0;}
+        int getUses() {return uses;}
         virtual void use(Entity*) = 0;
 };
 
