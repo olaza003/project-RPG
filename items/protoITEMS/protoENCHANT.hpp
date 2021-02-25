@@ -29,9 +29,9 @@ class Consumable_Enchant: public Consumable {
         ~Consumable_Enchant(){delete enchItem;}
         std::string getName(){return name + ' ' + enchItem->getName();}
         std::string getDescription() {
-            std::string output = "Name: " + getName() + '\n';
-            output = output + "  Uses: " + std::to_string(getUses()) + '\n';
-            output = output + "  Enchantment type: " + getType();
+            std::string output = "Name: " + getName() + '.';
+            output = output + " Uses: " + std::to_string(getUses()) + '.';
+            output = output + " Enchantment type: " + getType();
             return output;
         }
 };
@@ -45,30 +45,32 @@ class FireEnchant_Wea: public Weapon_Enchant {
         int getDmg(){return dmgVal + enchItem->getDmg();}
 };
 
-/*
+
 class FireEnchant_Con: public Consumable_Enchant {
     public:
         FireEnchant_Con(Consumable* object): Consumable_Enchant(object->getUses(), "Fiery", object) {}
         std::string getType() {return "Fire Enchantment";}
         void use(Entity* object){
             //cout << ">>" << object->getName() << " takes fire damage!\n";
+            std::cout << "Output\n";
             //enchItem->use();
             //object->takeAttack(5);
         }
 };
-*/
 
-/*
+
+
 class EnchantFactory{
     public:
         Item* FireEnchant(Item* object){
-            if(object->itemType() == 0){
-                //return FireEnchant(static_cast<Weapon*>(object));
+            if(object->getItemType() == 0){
+                return new FireEnchant_Wea(dynamic_cast<Weapon*>(object));
             }
-            if(object->itemType() == 1){
-               //return FireEnchant(static_cast<Consumable*>(object));
+            if(object->getItemType() == 1){
+                return new FireEnchant_Con(dynamic_cast<Consumable*>(object));
             }
+            else{return nullptr;}
         }
-}; */
+};
 
 #endif
