@@ -1,0 +1,68 @@
+[SEQ_ONE] 1 1 1
+Fire is the rapid oxidation of a
+material in the exothermic
+chemical process of combustion,
+releasing heat, light, and various reaction products.
+[SEQ_TWO] 2 2 2
+Fire is hot because
+the conversion of
+the weak double bond in molecular oxygen,
+O2, to the stronger bonds in
+the combustion products carbon
+dioxide and water releases energy (418 kJ per 32 g of O2);
+[SEQ_THREE] 2 3 2 1 1
+the bond energies of the
+fuel play only a minor role here.
+At a certain point in the combustion
+reaction, called the ignition point, flames are produced.
+The flame is the visible portion of the fire. Flames consist
+primarily of carbon dioxide, water vapor, oxygen and nitrogen.
+If hot enough, the gases may become ionized to produce plasma.
+Depending on the substances alight, and any impurities outside,
+the color of the flame and the fire's intensity will be different.
+[SEQ_FOUR] 3 3 3 1 2 2 5
+Fire in its most common form can result in conflagration,
+
+which has the potential to cause physical damage
+
+through burning.
+
+Fire is an important process
+
+that affects ecological systems around the globe.
+
+The positive effects of fire include stimulating growth and maintaining
+
+various ecological systems. Its negative effects
+
+include hazard to life and property,
+atmospheric pollution, and water contamination.
+If fire removes protective vegetation,
+
+heavy rainfall may lead to an increase in soil erosion by water.
+[SEQ_FIVE]
+Also, when vegetation is burned,
+the nitrogen it contains is released into the atmosphere,
+unlike elements such as potassium
+and phosphorus which remain in the ash and are quickly recycled into the soil.
+
+This loss of nitrogen caused by a fire produces
+a long-term reduction in the fertility of the soil,
+[SEQ_SIX]
+but this fecundity can potentially be recovered as
+
+molecular nitrogen in the atmosphere is "fixed" and
+
+converted to ammonia by natural phenomena such as lightning
+
+and by leguminous plants that are "nitrogen-fixing"
+
+
+such as clover, peas, and green beans.
+[SEQ_SEVEN] 1 1 1 2
+Fire has been used by humans in rituals,
+in agriculture for clearing land, for cooking, generating heat and light,
+for signaling, propulsion purposes,
+smelting, forging, incineration of waste, cremation,
+and as a weapon or mode of destruction.
+[END]

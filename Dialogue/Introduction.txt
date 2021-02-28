@@ -13,10 +13,4 @@ So can you give me your name?"
 "And your class type?"
 "Great. Phenomenal. Now here's a list of a items you can take. Sadly, we can literally only afford to give you two so choose wisely."
 "I'll read it back to you just to make sure that everything's correct. Just tell me if there's anything that should be fixed."
-[TEST] 1 1 2 1
-Line 1: Subsequence 0.
-Line 2: Subsequence 1.
-Line 3: Subsequence 2.
-Line 4: ^v^v^v^v^v^v^
-Line 5: Subsequence 3.
 [END]
