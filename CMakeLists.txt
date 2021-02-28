@@ -15,6 +15,9 @@ ADD_EXECUTABLE(test
    items/item.hpp
    items/Potion.hpp
 )
+ADD_EXECUTABLE(protoMain
+   items/protoITEMS/protoMain.cpp
+)
 
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)

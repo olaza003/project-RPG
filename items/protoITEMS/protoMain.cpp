@@ -1,5 +1,6 @@
 #include <iostream>
 #include "protoITEMS.hpp"
+#include "storage.cpp"
 
 using namespace std;
 
@@ -17,7 +18,18 @@ int main() {
         cout << list[i]->getDescription() << endl;
         delete list[i];
     }
+    
+    Storage store;
+    store.add_Item(new Sword());
+    store.add_Item(new Bow(1, "Broken Bow"));
+    store.add_Item(new Wand(3, "Slightly Better Wand"));
 
-    delete[] list;
+    store.DisplayStorage();
+    
+    Item* lh = store.getItem(2);
+    store.DisplayStorage();
+    store.getItem(2);
+    
+    delete lh;
     return 0;
 }
