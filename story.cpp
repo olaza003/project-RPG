@@ -53,16 +53,12 @@ void defend(Entity* e)
 
 void dodge(Character* p)
 {
+    p -> setDodgeAttempt(true);
     int rng = rand() % 20 + 1;
     if (p -> getSpeed() + 5 >= rng)
-    {
         p -> setDodge(true);
-    }
     else
-    {
         p -> setDodge(false);
-        cout << "DODGE FAILED" << endl;
-    }
 }
 
 void heal(Character* p)

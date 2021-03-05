@@ -33,12 +33,19 @@ void Character::takeAttack(int damage){
         if (dodge)
         {
             dodge = false;
+            dodgeAttempt = false;
             cout << "DODGE SUCCESSFUL" << endl;
             cout << "Damage taken: 0" << endl;
             return;
         }
         else
         {
+            if (dodgeAttempt)
+            {
+                dodgeAttempt = false;
+                cout << "DODGE FAILED" << endl;
+            }
+            
             if (damage - getDefense() <= 0)
             {
                 cout << "Damage taken: 0" << endl;

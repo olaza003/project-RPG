@@ -13,6 +13,7 @@ class Entity {
         int strength;
         bool defend = false;
         bool dodge = false;
+        bool dodgeAttempt = false;
     public:
         void setHealth(int damage)
         {
@@ -27,6 +28,7 @@ class Entity {
         int getStrength(){return strength;}
         void setDefend(bool def){defend = def;}
         bool getDefend(){return defend;}
+        void setDodgeAttempt(bool is_dodge){dodgeAttempt = is_dodge;}
         virtual void attack(Entity*) = 0; //calculates how much damage to give to enemy
         virtual void takeAttack(int) = 0; //calculates how much of the above damage to intake
 };
