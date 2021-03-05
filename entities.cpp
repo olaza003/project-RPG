@@ -1,3 +1,4 @@
+#include <iostream>
 #include "entities.hpp"
 #include "attacks.hpp"
 
@@ -6,13 +7,54 @@ Character::Character(){
     strength = 10;
     defense = 5;
     speed = 5;
+    heals = 3;
 }
 
 Character::~Character(){ delete attackType; }
 
 void Character::takeAttack(int damage){
-    if(damage - getDefense() <= 0){return;}
-    else{ setHealth(damage - getDefense()); }
+    if (defend)
+    {
+        defend = false;
+        damage /= 2;
+        if (damage - getDefense() <= 0)
+        {
+            cout << "BLOCKED" << endl;
+            cout << "Damage taken: 0" << endl;
+            return;
+        }
+        setHealth(damage - getDefense());
+        cout << "BLOCKED" << endl;
+        cout << "Damage taken: " << damage - getDefense() << endl;
+        return;
+    }
+    else
+    {
+        if (dodge)
+        {
+            dodge = false;
+            dodgeAttempt = false;
+            cout << "DODGE SUCCESSFUL" << endl;
+            cout << "Damage taken: 0" << endl;
+            return;
+        }
+        else
+        {
+            if (dodgeAttempt)
+            {
+                dodgeAttempt = false;
+                cout << "DODGE FAILED" << endl;
+            }
+            
+            if (damage - getDefense() <= 0)
+            {
+                cout << "Damage taken: 0" << endl;
+                return;
+            }
+            setHealth(damage - getDefense());
+            cout << "Damage taken: " << damage - getDefense() << endl;
+        }
+    }
 }
 
 void Character::setAttackType(CharacterAttack* newType){ 
@@ -21,6 +63,7 @@ void Character::setAttackType(CharacterAttack* newType){
 }
 
 void Character::attack(Entity* enemy){
+    defend = false;
     enemy->takeAttack( attackType->attack(this) );
 }
 
