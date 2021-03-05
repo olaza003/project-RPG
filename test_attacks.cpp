@@ -2,7 +2,7 @@
 #include "attacks.hpp"
 #include "gtest/gtest.h"
 
-TEST(CharacterCreation, NewPlayer)
+TEST(NewCharacter, NewPlayer)
 {
 	Character* player = new Character();
 	EXPECT_EQ(100, player -> getHealth());
@@ -12,7 +12,7 @@ TEST(CharacterCreation, NewPlayer)
 	delete player;
 }
 
-TEST(CharacterCreation, NewMonster)
+TEST(NewCharacter, NewMonster)
 {
         Monster* enemy = new Monster();
         EXPECT_EQ(100, enemy -> getHealth());
