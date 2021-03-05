@@ -1,0 +1,41 @@
+[PART_ONE]
+Apple
+Bean
+Clover
+[PART_TWO]
+Radiation
+Mutiny
+Radio
+Ginger
+Brussel
+[PART_THREE]
+If there was a dog
+
+waiting at home,
+
+and it waited all day,
+
+does it write novels
+
+about it?
+
+[PART_FOUR]
+one
+two
+three 
+four 
+five 
+six
+seven
+[PART_FIVE]
+AAA
+
+
+BBB
+
+
+CCC
+
+
+DDD
+[END]
