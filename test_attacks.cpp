@@ -16,7 +16,7 @@ TEST(NewCharacter, NewMonster)
 {
         Monster* enemy = new Monster();
         EXPECT_EQ(100, enemy -> getHealth());
-        EXPECT_EQ(10, enemy -> getStrength());
+        EXPECT_EQ(20, enemy -> getStrength());
 	delete enemy;
 }
 
@@ -65,7 +65,7 @@ TEST(Attacks, MonsterAttack)
 	Character* player = new Character();
 	Monster* enemy = new Monster();
 	enemy -> attack(player);
-	EXPECT_EQ(95, player -> getHealth());
+	EXPECT_EQ(85, player -> getHealth());
 	delete player;
 	delete enemy;
 }

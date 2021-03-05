@@ -7,6 +7,8 @@
 
 using namespace std;
 
+char battleOp;
+
 void CharacterCreation(Character* p)
 {
     char menuOp;
@@ -39,59 +41,71 @@ void CharacterCreation(Character* p)
                 p -> setAttackType(new HunterAttack());
                 p -> setAttackString("Hunter");
                 break;
-            default : cout << "Invalid Character, try again:" << endl;
+            default : cout << "Invalid Character, try again:" << endl << endl;
         }
     } while (menuOp != 'W' && menuOp != 'K' && menuOp != 'H');
 }
 
 void defend(Entity* e)
 {
-    e -> setDefend();
+    e -> setDefend(true);
 }
 
 void dodge(Character* p)
 {
-    //srand(time(0));
     int rng = rand() % 20 + 1;
     if (p -> getSpeed() + 5 >= rng)
+    {
         p -> setDodge(true);
+    }
+    else
+    {
+        p -> setDodge(false);
+        cout << "DODGE FAILED" << endl;
+    }
 }
 
 void heal(Character* p)
 {
     if (p -> getHeals() == 0)
     {
-        cout << "Out of heals, try doing something else" << endl;
+        cout << "OUT OF HEALS" << endl;
+        battleOp = ' ';
         return;
     }
     
     p -> setHealth(-20);
     p -> setHeals(p -> getHeals() - 1);
+    cout << "HEALED FOR: 20" << endl;
+    cout << "HEALS REMAINING: " << p -> getHeals() << endl;
 }
 
 void enemyAction(Character* p, Monster* e)
 {
-    //srand(time(0));
     int rng = rand() % 10 + 1;
     if (rng >= 7)
+    {
+        cout << "ENEMY ATTACKED" << endl;
         e -> attack(p);
+    }
     else
+    {
         defend(e);
+    }
+        
 }
 
 bool battle(Character* player, Monster* enemy)
 {
-    int battleOp;
     cout << "An enemy has appeared!" << endl;
     
     while (player -> getHealth() > 0 && enemy -> getHealth() > 0)
     {
         do
         {
-            cin >> battleOp;
-            
-            cout << "Player Health: " << player -> getHealth() << endl;
-            cout << "Enemy Health: " << enemy -> getHealth() << endl;
+            cout << endl;
+            cout << "Player Health: " << player -> getHealth();
+            cout << "   Enemy Health: " << enemy -> getHealth() << endl;
             
             cout << "What do you want to do?" << endl;
             cout << "Type 1 to attack" << endl;
@@ -100,31 +114,47 @@ bool battle(Character* player, Monster* enemy)
             //cout << "Type 4 to check inventory" << endl;
             cout << "Type 5 to heal" << endl;
             
+            cin >> battleOp;
+            
             switch(battleOp)
             {
-                case 1 :
+                case '1' :
+                    player -> setDefend(false);
+                    player -> setDodge(false);
+                    cout << "PLAYER ATTACKED" << endl;
                     player -> attack(enemy);
                     break;
-                case 2 :
+                case '2' :
+                    player -> setDodge(false);
+                    cout << "PLAYER DEFENDED" << endl;
                     defend(player);
                     break;
-                case 3 :
+                case '3' :
+                    player -> setDefend(false);
+                    cout << "PLAYER TRIED TO DODGE" << endl;
                     dodge(player);
                     break;
                 //case 4 :
+                    //cout << "CHECKING INVENTORY" << endl;
                     //player -> getInventory();
                     //break;
-                case 5 :
+                case '5' :
+                    player -> setDefend(false);
+                    player -> setDodge(false);
+                    cout << "PLAYER HEALED" << endl;
                     heal(player);
                     break;
-                default : cout << "Not an option, try again" << endl;
+                default : cout << "ERROR, INVALID OPTION" << endl;
             }
-        } while (battleOp != 1 && battleOp != 2 && battleOp != 3 && battleOp != 5);
-        enemyAction(player);
+        } while (battleOp != '1' && battleOp != '2' && battleOp != '3' && battleOp != '5');
+        if (enemy -> getHealth() > 0)
+            enemyAction(player, enemy);
     }
     
-    if (p -> getHealth() <= 0)
+    if (player -> getHealth() <= 0)
+    {
         return true;
+    }
     else
         return false;
 }
