@@ -1,4 +1,4 @@
-[SEQ_ONE] 1 1 1
+[SEQ_ONE] 1 1 1 1
 Fire is the rapid oxidation of a
 material in the exothermic
 chemical process of combustion,

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <stdexcept>
 
 class seqMan {
     private:
@@ -13,6 +14,7 @@ class seqMan {
         int currSectSeq = 0;
         std::ifstream dia;
         std::string filename;
+        bool errorFlag = false;
     public:
             //No string input or text file location results in the constructor not attempting to open a file. The class remains uninitialized. Use file() to initialize post-construction.
         seqMan(std::string seq = "$X"); 
@@ -29,13 +31,15 @@ class seqMan {
             //Prints the current subsequence. Each recurrent call outputs the following subsequence, and once it reaches the last subsequence, circles back to the first one.
             //Passing an index to one of the subsequences prints out that subsequence, and will set currSectSeq to that passed in index
         void OUT(int seq = -1, std::ostream& out = std::cout);
-          void OUT(std::ostream& out = std::cout);
-          std::string strOUT(int seq = -1);
+            //Functions much like OUT() except it returns a string
+        std::string strOUT(int seq = -1);
             //Checks if lines.size() == 0 or otherwise the class would have no output for OUT()
         bool is_empty();
             //Returns the current value of currSectSeq
-        int currSeq();
+        int currSeq() const;
         std::string getCWF() const;
+        bool bad() const;
+        void clearBad();
 };
 
 #endif
