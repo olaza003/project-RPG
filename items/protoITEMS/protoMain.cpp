@@ -31,19 +31,6 @@ int main() {
         delete list[i];
     }
     
-    Storage store;
-    store.add_Item(new Sword());
-    store.add_Item(new Bow(1, "Broken Bow"));
-    store.add_Item(new Wand(3, "Slightly Better Wand"));
-
-    store.DisplayStorage();
-    
-    Item* lh = store.getItem(2);
-    store.DisplayStorage();
-    store.getItem(2);
-    
-    delete lh;
-
     Weapon* hi = new FireEnchant_Wea(new Sword());
     Item* bye =  EnchFa.FireEnchant(new Bow(1, "Broken Bow"));
     Consumable* wha = new FireEnchant_Con(new TESTCONSUMABLE());
@@ -53,7 +40,25 @@ int main() {
 
     delete hi;
     delete bye;
-    delete wha;
+    //delete wha;
+    
+    cout << "--------------------------------" << endl;
 
+     Storage store;
+    store.add_Item(new Sword());
+    store.add_Item(new Bow(1, "Broken Bow"));
+    store.add_Item(wha);
+    store.DisplayStorage();
+
+    store.DisplayStorage();
+     Item* temp = store.getItem(2);
+    store.UsePotion(temp);
+    
+    cout << "Part 2: " << endl;
+
+     Weapon* ultra = new Wand();
+    store.add_Item(ultra);
+    store.DisplayStorage();
     return 0;
 }
+

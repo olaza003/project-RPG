@@ -33,6 +33,7 @@ class Consumable: public Item{ //getDescription is not overloaded. Adds new virt
         Consumable(int useInput, std::string nameInput): Item(nameInput), uses(useInput) {itemType = 0;}
         int getUses() {return uses;}
         virtual void use(Entity*) = 0;
+	void Use_Item(){uses--;} //added this function
 };
 
 //------------------------WEAPONS-----------------------
