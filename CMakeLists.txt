@@ -15,6 +15,7 @@ ADD_EXECUTABLE(test
    items/item.hpp
    items/Potion.hpp
 )
+
 ADD_EXECUTABLE(protoMain
    items/protoITEMS/protoMain.cpp
 )
