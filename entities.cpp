@@ -6,11 +6,24 @@ Character::Character(){
     strength = 10;
     defense = 5;
     speed = 5;
+    heals = 3;
 }
 
 Character::~Character(){ delete attackType; }
 
 void Character::takeAttack(int damage){
+    if (dodge)
+    {
+        dodge = false;
+        return;
+    }
+    if (defend)
+    {
+        setHealth((damage / 2) - getDefense());
+        defend = false;
+        return;
+    }
+    
     if(damage - getDefense() <= 0){return;}
     else{ setHealth(damage - getDefense()); }
 }
