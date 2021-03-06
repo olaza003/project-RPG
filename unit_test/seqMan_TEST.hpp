@@ -6,7 +6,7 @@
 TEST(SequenceManager, ReadOUT_SEQ_ONE_I){
     seqMan dia;
     std::stringstream str;
-    dia.file("unit_test/test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_ONE]");
     
     str << dia.strOUT();
