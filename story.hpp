@@ -1,3 +1,6 @@
+#ifndef __STORY_HPP__
+#define __STORY_HPP__
+
 #include "entities.hpp"
 #include "attacks.hpp"
 #include <iostream>
@@ -165,3 +168,5 @@ void gameOver(Character* p, Monster* e)
     }
     //Upgrade(player);
 }
+
+#endif
