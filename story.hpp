@@ -209,7 +209,7 @@ void Upgrade(Character* p)
 void NewItem(Character* p)
 {
     cout << "You found a new weapon!" << endl;
-    //p -> getStorage() -> add_Item(w -> getWeapon());
+    p -> getStorage() -> add_Item(w -> getWeapon());
 }
 
 void gameOver(Character* p, Monster* e)
