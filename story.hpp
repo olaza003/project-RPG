@@ -158,15 +158,70 @@ bool battle(Character* player, Monster* enemy)
         return false;
 }
 
+void Report(Character* p)
+{
+    cout << "Number of monsters killed: " << floorCounter << endl;
+    cout << "Number of items: " << p -> getStorage() -> storage.size() << endl;
+}
+
+void Upgrade(Character* p)
+{
+    char upgradeOp;
+    cout << "You defeated the enemy!" << endl;
+    cout << "What would you like to do?" << endl;
+    
+    cout << "Type 1 to level up your dedicated stat" << endl;
+    cout << "Type 2 to enchant one of your weapons" << endl;
+    
+    do
+    {
+        cin >> upgradeOp;
+        upgradeOp = toupper(upgradeOp);
+        
+        switch(upgradeOp)
+        {
+            case '1' :
+                if (p -> getAttackString() == "Warrior")
+                {
+                    p -> setStrength(p -> getStrength() + 1);
+                    cout << "New Strength: " p -> getStrength() << endl;
+                }
+                else if (p -> getAttackString() == "Knight")
+                {
+                    p -> setDefense(p -> getDefense() + 1);
+                    cout << "New Defense: " p -> getDefense() << endl;
+                }
+                else if (p -> getAttackString() == "Hunter")
+                {
+                    p -> setSpeed(p -> getSpeed() + 1);
+                    cout << "New Speed: " p -> getSpeed() << endl;
+                }
+                break;
+            case '2' :
+                //Enchant* e = new Enchant(p -> getStorage() -> get);
+                //e -> enchant(p -> getWeapon());
+                break;
+            default : cout << "Invalid Character, try again:" << endl << endl;
+        }
+    } while (menuOp != '1' && menuOp != '2');
+}
+
+void NewItem(Character* p)
+{
+    cout << "You found a new weapon!" << endl;
+    //p -> getStorage() -> add_Item(w -> getWeapon());
+}
+
 void gameOver(Character* p, Monster* e)
 {
     if (battle(p, e) == true)
     {
-        cout << "GAME OVER" << endl;
-        //Report(p);
+        cout << "GAME OVER";
+        Report(p);
         exit(0);
     }
-    //Upgrade(player);
+    Upgrade(p);
+    NewItem(p);
 }
 
 #endif
