@@ -3,7 +3,7 @@
 
 #include "../entities.hpp"
 #include "../attacks.hpp"
-#include "../story.cpp"
+#include "../story.hpp"
 
 TEST(CharacterCreation, CheckWarrior)
 {
