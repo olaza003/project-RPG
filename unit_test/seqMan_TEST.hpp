@@ -6,7 +6,7 @@
 TEST(SequenceManager, ReadOUT_SEQ_ONE_I){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_ONE]");
     
     str << dia.strOUT();
@@ -25,7 +25,7 @@ TEST(SequenceManager, ReadOUT_SEQ_ONE_I){
 TEST(SequenceManager, ReadOUT_SEQ_ONE_II){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_ONE]");
     
     for(int i = 0; i < 3; ++i) {
@@ -46,7 +46,7 @@ TEST(SequenceManager, ReadOUT_SEQ_ONE_II){
 TEST(SequenceManager, ReadOUT_SEQ_ONE_III){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_ONE]");
     
     for(int i = 0; i < 3; ++i) {    
@@ -67,7 +67,7 @@ TEST(SequenceManager, ReadOUT_SEQ_ONE_III){
 TEST(SequenceManager, ReadOUT_SEQ_ONE_IV){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_ONE]");
 
     dia.OUT(2, str);
@@ -95,7 +95,7 @@ TEST(SequenceManager, ReadOUT_SEQ_ONE_IV){
 TEST(SequenceManager, ReadOUT_SEQ_TWO_I){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_TWO]");
 
     str << dia.strOUT();
@@ -111,7 +111,7 @@ TEST(SequenceManager, ReadOUT_SEQ_TWO_I){
 TEST(SequenceManager, ReadOUT_SEQ_TWO_II){
         seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_TWO]");
     
     for(int i = 0; i < 3; ++i) {
@@ -129,7 +129,7 @@ TEST(SequenceManager, ReadOUT_SEQ_TWO_II){
 TEST(SequenceManager, ReadOUT_SEQ_TWO_III){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_TWO]");
     
     for(int i = 0; i < 3; ++i) {
@@ -147,7 +147,7 @@ TEST(SequenceManager, ReadOUT_SEQ_TWO_III){
 TEST(SequenceManager, ReadOUT_SEQ_TWO_IV){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_TWO]");
 
     dia.OUT(1, str);
@@ -175,7 +175,7 @@ TEST(SequenceManager, ReadOUT_SEQ_TWO_IV){
 TEST(SequenceManager, ReadOUT_SEQ_THREE){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_THREE]");
 
     for(int i = 0; i < 3; ++i){
@@ -199,7 +199,7 @@ TEST(SequenceManager, ReadOUT_SEQ_THREE){
 TEST(SequenceManager, ReadOUT_SEQ_FOUR){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_FOUR]");
 
     for(int i = 0; i < 3; ++i){
@@ -229,7 +229,7 @@ TEST(SequenceManager, ReadOUT_SEQ_FOUR){
 TEST(SequenceManager, ReadOUT_SEQ_FIVE){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_FIVE]");
 
     for(int i = 0; i < 3; ++i){
@@ -241,7 +241,7 @@ TEST(SequenceManager, ReadOUT_SEQ_FIVE){
 TEST(SequenceManager, ReadOUT_SEQ_SIX){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_SIX]");
 
     for(int i = 0; i < 3; ++i){
@@ -253,7 +253,7 @@ TEST(SequenceManager, ReadOUT_SEQ_SIX){
 TEST(SequenceManager, ReadOUT_SEQ_SEVEN){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_SEVEN]");
 
     for(int i = 0; i < 3; ++i){
@@ -277,18 +277,18 @@ TEST(SequenceManager, ReadOUT_SEQ_SEVEN){
 TEST(SequenceManager, ChangeTxt){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_SEVEN]");
 
     dia.OUT(-1, str);
     EXPECT_EQ(str.str(), "Fire has been used by humans in rituals,\n");
 
-    dia.file("test/testDialogue/sampleTextTEST_TWO.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_TWO.txt");
     dia.sequence("[PART_ONE]");
     str.str(std::string()); dia.OUT(-1, str);
     EXPECT_EQ(str.str(), "Apple\nBean\nClover\n");
 
-    dia.file("test/testDialogue/sampleTextTEST_ONE.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_ONE.txt");
     dia.sequence("[SEQ_TWO]");
     str.str(std::string()); dia.OUT(-1, str);
     EXPECT_EQ(str.str(), "Fire is hot because\nthe conversion of\n");
@@ -297,7 +297,7 @@ TEST(SequenceManager, ChangeTxt){
 TEST(SequenceManager, HotSwapSequence){
     seqMan dia;
     std::stringstream str;
-    dia.file("test/testDialogue/sampleTextTEST_TWO.txt");
+    dia.file("unit_test/testDialogue/sampleTextTEST_TWO.txt");
 
     dia.sequence("[PART_FIVE]");
     dia.OUT(-1, str);

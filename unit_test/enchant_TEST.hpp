@@ -1,4 +1,6 @@
-#include "gtest/gtest.h"
+#ifndef __ENCHANT_TEST_HPP__
+#define __ENCHANT_TEST_HPP__
+
 #include "../items/protoITEMS/protoITEMS.hpp"
 #include "../items/protoITEMS/protoENCHANT.hpp"
 #include <iostream>
@@ -78,7 +80,4 @@ TEST(Enchant, EnchantFactory_WAND){
     delete obj1; delete obj2;
 }
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+#endif

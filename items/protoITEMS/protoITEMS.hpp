@@ -10,6 +10,7 @@ class Item {
         int itemType; //0 for weapons. 1 for Consumables.
     public:
         Item(std::string input = "No Name"): name(input) {};
+        virtual ~Item() = default;
         void setName(std::string input){name = input;}
         int getItemType() {return itemType;}
         virtual std::string getName(){return name;}
