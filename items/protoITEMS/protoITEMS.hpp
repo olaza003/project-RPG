@@ -66,12 +66,12 @@ class Bow: public Weapon {
         }
 };
 
-class Wand: public Weapon {
+class Dagger: public Weapon {
     public:
-        Wand(int Dmg = 2, std::string input = "Wand"): Weapon(Dmg, input) {}
-        std::string getType() {return "Wand";}
+        Dagger(int Dmg = 2, std::string input = "Dagger"): Weapon(Dmg, input) {}
+        std::string getType() {return "Dagger";}
         std::string getDescription(){
-            return "Name: " + name + "\n   Damage: " + std::to_string(dmgVal) + "\n   Weapon Type: Wand";
+            return "Name: " + name + "\n   Damage: " + std::to_string(dmgVal) + "\n   Weapon Type: Dagger";
         }
 };
 
