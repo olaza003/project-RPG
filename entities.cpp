@@ -93,11 +93,13 @@ void Character::changeWeapon(){
             unEquip();
         }
         store ->DisplayStorage(std::cout );
-        std::cout<< "pick the number next to the item to get it: ";
+        std::cout<< "Pick the number next to the item to get it or enter 0 to exit inventory: ";
         int choose;
         bool a = false;
         do{
             cin >> choose;
+            if (choose == 0)
+                return;
             if(choose - 1 < store ->getLength() && choose > 0 ){ 
                 weapon =store ->getItem(choose);
                 if(weapon == nullptr){

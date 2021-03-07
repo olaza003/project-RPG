@@ -11,6 +11,23 @@
 using namespace std;
 
 char battleOp;
+vector<Weapon*> T1weapons;
+vector<Weapon*> T2weapons;
+vector<Weapon*> T3weapons;
+EnchantFactory enchantments;
+
+void fillWeapons()
+{
+    T1weapons.push_back(new Sword(9, "Bronze Sword"));
+    T1weapons.push_back(new Bow(8, "Wooden Bow"));
+    T1weapons.push_back(new Dagger(7, "Bronze Dagger"));
+    T2weapons.push_back(new Sword(14, "Silver Sword"));
+    T2weapons.push_back(new Bow(13, "Bamboo Bow"));
+    T2weapons.push_back(new Dagger(12, "Silver Dagger"));
+    T3weapons.push_back(new Sword(19, "Gold Sword"));
+    T3weapons.push_back(new Bow(18, "Crossbow"));
+    T3weapons.push_back(new Dagger(17, "Gold Dagger"));
+}
 
 void CharacterCreation(Character* p)
 {
@@ -110,7 +127,7 @@ bool battle(Character* player, Monster* enemy)
             cout << "  || Type 1 to attack" << endl;
             cout << "  || Type 2 to defend" << endl;
             cout << "  || Type 3 to dodge" << endl;
-            //cout << "  || Type 4 to check inventory" << endl;
+            cout << "  || Type 4 to check inventory" << endl;
             cout << "  || Type 5 to heal" << endl;
             
             cin >> battleOp;
@@ -133,10 +150,10 @@ bool battle(Character* player, Monster* enemy)
                     cout << ">>PLAYER TRIED TO DODGE!" << endl;
                     dodge(player);
                     break;
-                //case 4 :
-                    //cout << ">>CHECKING INVENTORY!" << endl;
-                    //player -> getInventory();
-                    //break;
+                case '4' :
+                    cout << ">>CHECKING INVENTORY!" << endl;
+                    player -> changeWeapon();
+                    break;
                 case '5' :
                     player -> setDefend(false);
                     player -> setDodge(false);
@@ -158,10 +175,10 @@ bool battle(Character* player, Monster* enemy)
         return false;
 }
 
-void Report(Character* p)
+void Report(Character* p, int floor)
 {
-    cout << "Number of monsters killed: " << floorCounter << endl;
-    cout << "Number of items: " << p -> getStorage() -> storage.size() << endl;
+    cout << "Number of monsters killed: " << floor << endl;
+    cout << "Number of items: " << p -> getStorage() -> getLength() << endl;
 }
 
 void Upgrade(Character* p)
@@ -176,7 +193,6 @@ void Upgrade(Character* p)
     do
     {
         cin >> upgradeOp;
-        upgradeOp = toupper(upgradeOp);
         
         switch(upgradeOp)
         {
@@ -184,44 +200,77 @@ void Upgrade(Character* p)
                 if (p -> getAttackString() == "Warrior")
                 {
                     p -> setStrength(p -> getStrength() + 1);
-                    cout << "New Strength: " p -> getStrength() << endl;
+                    cout << "New Strength: " << p -> getStrength() << endl;
                 }
                 else if (p -> getAttackString() == "Knight")
                 {
                     p -> setDefense(p -> getDefense() + 1);
-                    cout << "New Defense: " p -> getDefense() << endl;
+                    cout << "New Defense: " << p -> getDefense() << endl;
                 }
                 else if (p -> getAttackString() == "Hunter")
                 {
                     p -> setSpeed(p -> getSpeed() + 1);
-                    cout << "New Speed: " p -> getSpeed() << endl;
+                    cout << "New Speed: " << p -> getSpeed() << endl;
                 }
                 break;
             case '2' :
-                //Enchant* e = new Enchant(p -> getStorage() -> get);
-                //e -> enchant(p -> getWeapon());
+                p -> changeWeapon();
+                p -> setWeapon(enchantments.FireEnchant(p -> getWeapon()));
                 break;
             default : cout << "Invalid Character, try again:" << endl << endl;
         }
-    } while (menuOp != '1' && menuOp != '2');
+    } while (upgradeOp != '1' && upgradeOp != '2');
 }
 
-void NewItem(Character* p)
+void NewItem(Character* p, int floor)
 {
     cout << "You found a new weapon!" << endl;
-    p -> getStorage() -> add_Item(w -> getWeapon());
+    int val = 0;
+    if (floor == 0)
+    {
+        if (p -> getAttackString() == "Warrior")
+            val = 0;
+        else if (p -> getAttackString() == "Knight")
+            val = 1;
+        else if (p -> getAttackString() == "Hunter")
+            val = 2;
+        p -> getStorage() -> add_Item(T1weapons.at(val));
+        T1weapons.erase(T1weapons.begin() + val);
+    }
+    else if (floor == 1)
+    {
+        if (p -> getAttackString() == "Warrior")
+            val = 0;
+        else if (p -> getAttackString() == "Knight")
+            val = 1;
+        else if (p -> getAttackString() == "Hunter")
+            val = 2;
+        p -> getStorage() -> add_Item(T2weapons.at(val));
+        T2weapons.erase(T2weapons.begin() + val);
+    }
+    else if (floor == 2)
+    {
+        if (p -> getAttackString() == "Warrior")
+            val = 0;
+        else if (p -> getAttackString() == "Knight")
+            val = 1;
+        else if (p -> getAttackString() == "Hunter")
+            val = 2;
+        p -> getStorage() -> add_Item(T3weapons.at(val));
+        T3weapons.erase(T3weapons.begin() + val);
+    }
 }
 
-void gameOver(Character* p, Monster* e)
+void gameOver(Character* p, Monster* e, int floor)
 {
     if (battle(p, e) == true)
     {
         cout << "GAME OVER";
-        Report(p);
+        Report(p, floor);
         exit(0);
     }
     Upgrade(p);
-    NewItem(p);
+    NewItem(p, floor);
 }
 
 #endif
