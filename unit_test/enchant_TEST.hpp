@@ -29,11 +29,11 @@ TEST(Enchant, DirectEnchantWeaponClassCall_BOW){
     delete obj1; delete obj2;
 }
 
-TEST(Enchant, DirectEnchantWeaponClassCall_WAND_ONE){
-    Weapon* obj1 = new FireEnchant_Wea(new Wand());
-    Weapon* obj2 = new FireEnchant_Wea(new Wand(1, "Duck"));
-    EXPECT_EQ(obj1->getDescription(), "Name: Fiery Wand. Damage: 7(5+2). Weapon Type: Wand.");
-    EXPECT_EQ(obj2->getDescription(), "Name: Fiery Duck. Damage: 6(5+1). Weapon Type: Wand.");
+TEST(Enchant, DirectEnchantWeaponClassCall_DAGGER_ONE){
+    Weapon* obj1 = new FireEnchant_Wea(new Dagger());
+    Weapon* obj2 = new FireEnchant_Wea(new Dagger(1, "Duck"));
+    EXPECT_EQ(obj1->getDescription(), "Name: Fiery Dagger. Damage: 7(5+2). Weapon Type: Dagger.");
+    EXPECT_EQ(obj2->getDescription(), "Name: Fiery Duck. Damage: 6(5+1). Weapon Type: Dagger.");
     EXPECT_EQ(obj1->getDmg(), 7);
     EXPECT_EQ(obj2->getDmg(), 6);
     EXPECT_EQ(obj1->getType(), "Fire Enchantment");
@@ -67,12 +67,12 @@ TEST(Enchant, EnchantFactory_BOW){
     delete obj1; delete obj2;
 }
 
-TEST(Enchant, EnchantFactory_WAND){
+TEST(Enchant, EnchantFactory_DAGGER){
     EnchantFactory EnchFac;
-    Item* obj1 = EnchFac.FireEnchant(new Wand());
-    Item* obj2 = EnchFac.FireEnchant(new Wand(1, "Duck"));
-    EXPECT_EQ(obj1->getDescription(), "Name: Fiery Wand. Damage: 7(5+2). Weapon Type: Wand.");
-    EXPECT_EQ(obj2->getDescription(), "Name: Fiery Duck. Damage: 6(5+1). Weapon Type: Wand.");
+    Item* obj1 = EnchFac.FireEnchant(new Dagger());
+    Item* obj2 = EnchFac.FireEnchant(new Dagger(1, "Duck"));
+    EXPECT_EQ(obj1->getDescription(), "Name: Fiery Dagger. Damage: 7(5+2). Weapon Type: Dagger.");
+    EXPECT_EQ(obj2->getDescription(), "Name: Fiery Duck. Damage: 6(5+1). Weapon Type: Dagger.");
     EXPECT_EQ(dynamic_cast<Weapon*>(obj1)->getDmg(), 7);
     EXPECT_EQ(dynamic_cast<Weapon*>(obj2)->getDmg(), 6);
     EXPECT_EQ(obj1->getType(), "Fire Enchantment");
