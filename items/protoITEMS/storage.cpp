@@ -1,60 +1,75 @@
-#include "protoITEMS.hpp"
-#include "protoENCHANT.hpp"
+#include "storage.hpp"
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-class Storage 
+Weapon* Storage::getItem(int place)
 {
-    protected:
-        std::vector<Item*> storage;
- 	EnchantFactory EnchFa;
-	int storage_len = 0;
+   if(place - 1 > storage_len || place < 1) return nullptr;
    
-    public:
-        Storage() { }
-        ~Storage()
-        {
-	    for(auto it: storage)
-		delete it;
-            storage.clear();
-         //   storage.shrink_to_fit(); //remove leaks 
+   int val = place - 1; //we would have to decrement it because the 
+			//display starts at 1
+   if(storage.at(val) -> getItemType() == 1){
+	std::cout << "Item is not a weapon" << endl;
+                return nullptr;
+            }
+   else{
+       if(val >= storage.size()){
+           std::cout <<" There's no item in the slot" << endl;
+           return NULL;
         }
-        void add_Item(Item* item){ storage.push_back(item);
-	   storage_len++;
-	}
-        Item* getItem(int place)
-        {
-	   if(storage.at(place) -> getItemType() == 1)
-                return storage.at(place);
-            else{
-            if(place >= storage.size()){
-                std::cout <<" There's no item in the slot" << endl;
-                return NULL;
-            }
-            else{
-                Item* temp = storage.at(place);
-                storage.erase(storage.begin() + place);
-                storage_len--;
-                return temp;
-            }
-            }
-        }
-        void DisplayStorage()
-        {
+        else{
+        Item* temp = storage.at(val);
+        storage.erase(storage.begin() + val);
+        storage_len--;
+        return dynamic_cast<Weapon*>(temp);
+       }
+   }
+}
+
+bool Storage::weaponInStorage(){
+   for(auto it: storage ){
+      if(it -> getItemType() == 0) return true;
+   }
+   return false;
+}
+
+bool Storage::consumInStorage(){
+   for(auto it: storage ){
+     if(it -> getItemType() == 1) return true;
+   }
+   return false;
+}
+
+
+void Storage::DisplayStorage(std::ostream& cout)
+{ 
+  if(storage_len > 0){
+    int counter = 1;
+    for(auto it : storage)
+       cout <<"[" << counter++ << "]" << it -> getDescription() << endl;
+  }
+  else cout << "There's nothing in your inventory" << endl;
+}
+
+void Storage::heal(Entity* object){
             for(auto it : storage)
-                std::cout << it -> getDescription() << endl;
-        }
-        void UsePotion(Item* item)
-        {
-            if(item -> getItemType() == 1){
-                dynamic_cast<Consumable*>(item) -> Use_Item();
-                std::cout << "Potion uses: " << dynamic_cast<Consumable*>(item) -> getUses() << endl;
+            {
+                if(it -> getItemType() == 1 && it -> getName() == "Potion"){
+                    std::cout << "test" << endl;
+                    if(dynamic_cast<Consumable*>(it) -> getUses() > 0)
+                        dynamic_cast<Consumable*>(it) -> use(object);
+                    else std::cout <<"Potion has " << dynamic_cast<Consumable*>(it) -> getUses() << endl;
+                }
             }
-            else 
-                std::cout << "Item is not consumbale" << endl;
         }
         
-        int getLength(){ return storage_len;}
-};
+void Storage:: displayPotion()
+{
+   for(auto it: storage)
+   {
+      if(it -> getItemType() == 1){
+          std::cout  << it -> getDescription() << endl;
+      }
+   }
+}

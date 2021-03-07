@@ -31,10 +31,18 @@ class Consumable: public Item{ //getDescription is not overloaded. Adds new virt
     protected:
         int uses;
     public:
-        Consumable(int useInput, std::string nameInput): Item(nameInput), uses(useInput) {itemType = 0;}
+        Consumable(int useInput, std::string nameInput): Item(nameInput), uses(useInput) {itemType = 1;}
         int getUses() {return uses;}
         virtual void use(Entity*) = 0;
 	void Use_Item(){uses--;} //added this function
+};
+
+class Potion: public Consumable{
+    public:
+        Potion(int use = 3, std::string nameInput = "Potion"): Consumable(use, nameInput) {}
+        std::string getType() { return "Potion";}
+        std::string getDescription() {return "Name: " + name + "\n   uses: " + std::to_string(this ->getUses());}
+        void use(Entity*);
 };
 
 //------------------------WEAPONS-----------------------

@@ -8,10 +8,12 @@ ADD_EXECUTABLE(test
    unit_test/test.cpp
    entities.cpp
    sequenceManager/seqMan.cpp
+   items/protoITEMS/storage.cpp
 )
 
 ADD_EXECUTABLE(protoMain
    items/protoITEMS/protoMain.cpp
+   items/protoITEMS/storage.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
