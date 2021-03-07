@@ -73,3 +73,11 @@ void Storage:: displayPotion()
       }
    }
 }
+
+void Storage::refill()
+{
+   for(auto it: storage){
+     if(it -> getItemType() == 1 && it -> getName() == "Potion") 
+          dynamic_cast<Consumable*>(it) -> recharge();
+  }
+}
