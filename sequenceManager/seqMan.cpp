@@ -95,3 +95,4 @@ void seqMan::clear() { numLines.clear(); lines.clear(); currSectSeq = 0; errorFl
 bool seqMan::is_empty(){ return !lines.size(); }
 int seqMan::currSeq() const { return currSectSeq; }
 std::string seqMan::getCWF() const {return filename;}
+int seqMan::getNumSubSeq() const {return numLines.size();}

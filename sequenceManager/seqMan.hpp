@@ -40,6 +40,7 @@ class seqMan {
         std::string getCWF() const;
         bool bad() const;
         void clearBad();
+        int getNumSubSeq() const;
 };
 
 #endif

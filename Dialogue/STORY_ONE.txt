@@ -1,0 +1,43 @@
+[NAME] 1
+DUNGEON CRAWLER(TM)
+[INTRODUCTION] 9 1 1 1
+A voice speaks to you.
+"A letter came in today. 'U R G E N T' written on it in big, bold, red letters. It's another search request. This makes it the fifth one today.
+We need you to take this one since we can't afford to refuse. Royal Orders, y'know? Especially since we need the funding.
+We're short staffed having everyone else deal with the other requests so you are going to have to go alone for this one.
+We'll let you have a few items we have left in the back, but that's the best we can do. You're going to have to make due with what you have on you.
+
+Now I know how everyone thinks this is a waste of time, but I need you to fill out this form. Standard procedure 'n all.
+
+So can you give me your name?"
+"And your class type?"
+"Great. Phenomenal. Now here's a list of a items you can take. Sadly, we can literally only afford to give you two so choose wisely."
+"I'll read it back to you just to make sure that everything's correct. Just tell me if there's anything that should be fixed."
+[FLOOR_ONE_ENTER] 8 7
+The request included a rather vague set of directions, but it was enough to get where you needed to go.
+This time, the location is a dungeon. Not the first time a search request has sent you here so it probably won't take long, you hope.
+
+The entrance is located deep within a dense forest; rays of sunlight beaming through the trees. The wind passes through - softly rustling the leaves.
+A calm feeling flows through you.
+
+You walk inside, and immediantly, that calm feeling is flushed, and instead, you are on high alert. You are now at the mercy of the dungeon.
+>>PRESS ANY BUTTON TO CONTINUE<<
+You look around and see no signs that suggest that anyone was near by. There are lit torches on the wall, but it seems that 
+these belong to the dungeon. That means that the missing person must be deeper inside.
+
+There is only one passage forward so you take that path. Unlike the fresh air outside, the air here was rancid and awful.
+
+Walking further down the passage, you hear growls and footsteps ahead. A werewolf -rotten and disfigured- blocks your path.
+You can not run away, and it has already seen you. You are left to fight it.
+[FLOOR_ONE]
+The monster is slain, and you continue further down the passage. 
+[FLOOR_TWO_ENTER]
+[FLOOR_TWO]
+[FLOOR_THREE_ENTER]
+[FLOOR_THREE]
+[FLOOR_FOUR_ENTER]
+[FLOOR_FOUR]
+[FLOOR_FIVE_ENTER]
+[FLOOR_FIVE]
+[EPILOGUE]
+[END]
