@@ -1,6 +1,7 @@
 #include <iostream>
 #include "entities.hpp"
 #include "attacks.hpp"
+#include "items/protoITEMS/storage.hpp"
 
 Character::Character(){
     health = 100;
@@ -8,9 +9,13 @@ Character::Character(){
     defense = 5;
     speed = 5;
     heals = 3;
+    store = new Storage();
 }
 
-Character::~Character(){ delete attackType; }
+Character::~Character(){ 
+	delete attackType;
+	delete store;
+ }
 
 void Character::takeAttack(int damage){
     if (defend)
@@ -64,7 +69,9 @@ void Character::setAttackType(CharacterAttack* newType){
 
 void Character::attack(Entity* enemy){
     defend = false;
-    enemy->takeAttack( attackType->attack(this) );
+   if(weapon != nullptr)
+        enemy->takeAttack( attackType->attack(this) + weapon -> getDmg() );
+   else  enemy->takeAttack( attackType->attack(this) );
 }
 
 
@@ -79,3 +86,45 @@ int KnightAttack::attack(Character* player){
 int HunterAttack::attack(Character* player){
     return player->getStrength() + (player->getSpeed() / 2); 
 }
+
+void Character::changeWeapon(){
+    if(store ->weaponInStorage()){
+        if(weapon != nullptr){ 
+            unEquip();
+        }
+        store ->DisplayStorage(std::cout );
+        std::cout<< "pick the number next to the item to get it: ";
+        int choose;
+        bool a = false;
+        do{
+            cin >> choose;
+            if(choose - 1 < store ->getLength() && choose > 0 ){ 
+                weapon =store ->getItem(choose);
+                if(weapon == nullptr){
+                    std::cout << "Invalid choice" << endl;
+                }
+                else a = true;
+            }
+            else std::cout << "Invalid choice, try again: " << endl;
+        }while(a != true);
+    }
+    else std::cout << "No weapons in storage available" << endl;
+}
+
+void Character::unEquip()
+{
+    if(weapon == nullptr) std::cout << "No weapon equip" << endl;
+    else{ 
+        storeItem(weapon);
+        weapon = nullptr;
+    }
+}
+void Character::PotionHeal(Entity* person){
+   if(store -> consumInStorage())
+	store ->heal(person);
+   else std::cout << "No potion in storage" << endl;
+}
+
+void Character::storeItem(Item* item){store ->add_Item(item);}
+void Character::ShowStorage(std::ostream& cout){store ->DisplayStorage(cout);}
+

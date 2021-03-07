@@ -4,8 +4,11 @@
 #include <string>
 #include <iostream>
 #include "attacks.hpp"
+#include "items/protoITEMS/protoITEMS.hpp"
+#include "items/protoITEMS/storage.hpp"
 
 using namespace std;
+class Storage;
 
 class Entity {
     protected:
@@ -67,6 +70,8 @@ class Character : public Entity {
         CharacterAttack* attackType = nullptr;
         string attackString;
         void takeAttack(int);
+	Weapon* weapon = nullptr;//
+        Storage* store;//
     public:
         Character();
         ~Character();
@@ -83,6 +88,13 @@ class Character : public Entity {
         void setAttackString(string s){ attackString = s; }
         string getAttackString(){ return attackString; }
         void attack(Entity* enemy);
+
+	void changeWeapon();//
+        void unEquip();//
+        void storeItem(Item*);
+        void ShowStorage(std::ostream& cout);
+        void PotionHeal(Entity*);
+        Weapon* getWeapon(){return weapon;}
 };
 
 #endif //__ENTITIES_HPP__
