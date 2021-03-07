@@ -1,5 +1,6 @@
 #ifndef __PROTOITEMS_HPP__
 #define __PROTOITEMS_HPP__
+#include <iostream>
 #include <string>
 
 class Entity;

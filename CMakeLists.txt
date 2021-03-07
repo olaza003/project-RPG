@@ -11,10 +11,5 @@ ADD_EXECUTABLE(test
    items/protoITEMS/storage.cpp
 )
 
-ADD_EXECUTABLE(protoMain
-   items/protoITEMS/protoMain.cpp
-   items/protoITEMS/storage.cpp
-)
-
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
