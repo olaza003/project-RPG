@@ -76,6 +76,15 @@ void closeGameHandle(){
     for(int i = 0; i < mobs.size(); ++i){
         delete mobs.at(i);
     }
+    for (auto i : T1weapons){
+        delete i;
+    }
+    for (auto i : T2weapons){
+        delete i;
+    }
+    for (auto i : T3weapons){
+        delete i;
+    }
 }
 
 void quick_intro(Character* player){

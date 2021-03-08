@@ -10,14 +10,14 @@
 
 
 //PlayerDefendAttack Suite
-    TEST(PlayerDefendAttack, 5Damage)
+    TEST(PlayerDefendAttack, 2Damage)
     {
         Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
         defend(player);
         enemy -> attack(player);
-        EXPECT_EQ(95, player -> getHealth());
+        EXPECT_EQ(98, player -> getHealth());
         delete player;
         delete enemy;
     }
@@ -62,7 +62,7 @@
         EXPECT_EQ(false, player -> getDefend());
         EXPECT_EQ(false, enemy -> getDefend());
         EXPECT_EQ(94, enemy -> getHealth());
-        EXPECT_EQ(85, player -> getHealth());
+        EXPECT_EQ(90, player -> getHealth());
         delete player;
         delete enemy;
     }
@@ -78,7 +78,7 @@
         enemy -> attack(player);
         EXPECT_EQ(false, player -> getDefend());
         EXPECT_EQ(false, enemy -> getDefend());
-        EXPECT_EQ(95 , player -> getHealth());
+        EXPECT_EQ(98 , player -> getHealth());
         delete player;
         delete enemy;
     }
@@ -122,7 +122,7 @@
         srand(2);
         dodge(player);
         enemy -> attack(player);
-        EXPECT_EQ(85, player -> getHealth());
+        EXPECT_EQ(90, player -> getHealth());
         delete player;
         delete enemy;
     }
@@ -149,7 +149,7 @@
         player -> storeItem(new Potion());
         heal(player);
         enemy -> attack(player);
-        EXPECT_EQ(85, player -> getHealth());
+        EXPECT_EQ(90, player -> getHealth());
         heal(player);
         EXPECT_EQ(100, player -> getHealth());
         delete player;
@@ -164,7 +164,7 @@
         player -> storeItem(new Potion());
         heal(player);
         enemy -> attack(player);
-        EXPECT_EQ(85, player -> getHealth());
+        EXPECT_EQ(90, player -> getHealth());
         heal(player);
         EXPECT_EQ(100, player -> getHealth());
         enemy -> setStrength(30);
@@ -184,7 +184,7 @@
         player -> storeItem(new Potion());
         heal(player);
         enemy -> attack(player);
-        EXPECT_EQ(85, player -> getHealth());
+        EXPECT_EQ(90, player -> getHealth());
         heal(player);
         EXPECT_EQ(100, player -> getHealth());
         enemy -> setStrength(30);
@@ -203,18 +203,18 @@
 
 
 //TestEnemyAction Suite
-    TEST(TestEnemyAction, Attack)
+    TEST(TestEnemyAction, Defend)
     {
         Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
         enemyAction(player, enemy);
-        EXPECT_EQ(85, player -> getHealth());
+        EXPECT_EQ(100, player -> getHealth());
         delete player;
         delete enemy;
     }
 
-    TEST(TestEnemyAction, Defend)
+    TEST(TestEnemyAction, Attack)
     {
         Character* player = new Character();
         Monster* enemy = new Monster();
@@ -222,8 +222,8 @@
         srand(3);
         player -> attack(enemy);
         enemyAction(player, enemy);
-        EXPECT_EQ(100, player -> getHealth());
-        EXPECT_EQ(true, enemy -> getDefend());
+        EXPECT_EQ(90, player -> getHealth());
+        EXPECT_EQ(false, enemy -> getDefend());
         delete player;
         delete enemy;
     }
@@ -235,7 +235,7 @@
         Character* player = new Character();
         std::stringstream ss;
         Report(player, 0, ss);
-        EXPECT_EQ(ss.str(), "Number of monsters killed: 0\nNumber of items: 0\n>>INVENTORY EMPTY\n");
+        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 0\n>>Number of items: 0\n>>Items in inventory: \n\n>>INVENTORY EMPTY\n");
         delete player;
     }
 
@@ -247,7 +247,7 @@
         player -> storeItem(new Dagger());
         std::stringstream ss;
         Report(player, 6, ss);
-        EXPECT_EQ(ss.str(), "Number of monsters killed: 6\nNumber of items: 3\n\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n[2] Bow\nDamage: 3\nWeapon Type: Bow\n[3] Dagger\nDamage: 2\nWeapon Type: Dagger\n");
+        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 6\n>>Number of items: 3\n>>Items in inventory: \n\n\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n\n[2] Bow\nDamage: 3\nWeapon Type: Bow\n\n[3] Dagger\nDamage: 2\nWeapon Type: Dagger\n");
         delete player;
     }
 
@@ -259,7 +259,7 @@
         player -> storeItem(new Potion());
         std::stringstream ss;
         Report(player, 1, ss);
-        EXPECT_EQ(ss.str(), "Number of monsters killed: 1\nNumber of items: 3\n\n[1] Potion\nUses: 3\n[2] Potion\nUses: 3\n[3] Potion\nUses: 3\n");
+        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 1\n>>Number of items: 3\n>>Items in inventory: \n\n\n[1] Potion\nUses: 3\n\n[2] Potion\nUses: 3\n\n[3] Potion\nUses: 3\n");
         delete player;
     }
 
@@ -300,57 +300,39 @@
 
 
 //TestEnchant Suite
-    TEST(TestEnchant, NoWeapon)
-    {
-        Character* player = new Character();
-        player -> setAttackType(new WarriorAttack());
-        player -> setAttackString("Warrior");
-        Victory(player, 0);
-        EXPECT_EQ(player -> getStrength(), 13);
-        delete player;
-    }
-
-    TEST(TestEnchant, Potion)
-    {
-        Character* player = new Character();
-        player -> setAttackType(new WarriorAttack());
-        player -> setAttackString("Warrior");
-        player -> storeItem(new Potion());
-        Victory(player, 0);
-        EXPECT_EQ(player -> getStrength(), 13);
-        delete player;
-    }
-
     TEST(TestEnchant, Sword)
     {
         Character* player = new Character();
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
         player -> storeItem(new Sword());
+        fillWeapons();
         Victory(player, 0);
-        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Sword. Damage: 9(5+4). Weapon Type: Sword.");
+        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Sword\nDamage: 9(5+4)\nWeapon Type: Sword");
         delete player;
     }
 
     TEST(TestEnchant, Bow)
     {
         Character* player = new Character();
-        player -> setAttackType(new WarriorAttack());
-        player -> setAttackString("Warrior");
+        player -> setAttackType(new KnightAttack());
+        player -> setAttackString("Knight");
         player -> storeItem(new Bow());
+        fillWeapons();
         Victory(player, 0);
-        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Bow. Damage: 8(5+3). Weapon Type: Bow.");
+        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Bow\nDamage: 8(5+3)\nWeapon Type: Bow");
         delete player;
     }
 
     TEST(TestEnchant, Dagger)
     {
         Character* player = new Character();
-        player -> setAttackType(new WarriorAttack());
-        player -> setAttackString("Warrior");
+        player -> setAttackType(new HunterAttack());
+        player -> setAttackString("Hunter");
         player -> storeItem(new Dagger());
+        fillWeapons();
         Victory(player, 0);
-        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Dagger. Damage: 7(5+2). Weapon Type: Dagger.");
+        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Dagger\nDamage: 7(5+2)\nWeapon Type: Dagger");
         delete player;
     }
 

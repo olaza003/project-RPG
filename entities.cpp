@@ -95,10 +95,11 @@ void Character::changeWeapon(){
         }
         store ->DisplayStorage(std::cout );
         std::cout<< ">>SELECT ITEM: ";
-        int choose;
+        char choice;
         bool a = false;
         do{
-            cin >> choose;
+            cin >> choice;
+            int choose = choice - '0';
             if(choose - 1 < store ->getLength() && choose > 0 ){ 
                 weapon =store ->getItem(choose);
                 if(weapon != nullptr)

@@ -91,7 +91,7 @@ TEST(PotionHeal, healPlayer){
    player -> storeItem(new Potion());
    Monster* mob = new Monster();
    mob -> attack(player);
-   EXPECT_EQ(player -> getHealth(), 85);
+   EXPECT_EQ(player -> getHealth(), 90);
    player-> PotionHeal();
    EXPECT_EQ(player->getHealth(), 100);
 }
@@ -104,11 +104,11 @@ TEST(PotionNumber, refill)
    player -> PotionHeal();
    std::stringstream ss;
    player -> ShowStorage(ss);
-   EXPECT_EQ(ss.str(), "[1]Name: Potion\n   uses: 2\n");
+   EXPECT_EQ(ss.str(), "\n[1] Potion\nUses: 2\n");
    player -> refillPotion();
   // std::stringstream oss;
    ss.str(std::string());
    player -> ShowStorage(ss);
-   EXPECT_EQ(ss.str(), "[1]Name: Potion\n   uses: 3\n");
+   EXPECT_EQ(ss.str(), "\n[1] Potion\nUses: 3\n");
 }
 #endif
