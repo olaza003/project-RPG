@@ -39,6 +39,7 @@ char read(istream& input)
 
 void CharacterCreation(Character* p)
 {
+    p -> getStorage() -> add_Item(new Potion());
     cout << ">>These are the classes you can choose from:" << endl;
     
     cout << "  || Warriors specialize in dealing damage which will help with attacking" << endl;
@@ -266,6 +267,7 @@ void Victory(Character* p, int floor)
 {
     char victoryOp;
     p -> setHealth(-100);
+    p -> refillPotion();
     cout << endl << ">>You defeated the enemy!" << endl;
     NewItem(p, floor);
     cout << ">>What would you like to do?" << endl;
