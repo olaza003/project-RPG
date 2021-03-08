@@ -6,13 +6,11 @@
 #include "../entities.hpp"
 TEST(StoreItem, Storing){
    Storage store;
-   Weapon* weapon = new Sword();
-   store.add_Item(weapon);
+   store.add_Item(new Sword());
    std::stringstream ss;
   // store.DisplayStorage(cout);
    store.DisplayStorage(ss);
    EXPECT_EQ(ss.str(),"\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n" );
-   delete weapon;
 }
 
 TEST(NoItem, storing){
@@ -25,10 +23,8 @@ TEST(NoItem, storing){
 
 TEST(ConsumableStore, checkingConsumable){
   Storage store;
-  Item* potion = new Potion();
-  store.add_Item(potion);
+  store.add_Item(new Potion());
   EXPECT_TRUE(store.getItem(1) == nullptr);
-  delete potion;
 }
 
 TEST(StorageLen, checkLength){
