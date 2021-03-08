@@ -101,7 +101,7 @@ TEST(PotionNumber, refill)
    Character* player = new Character();
    player -> storeItem(new Potion());
    player -> ShowStorage(cout);
-   player -> PotionHeal(player);
+   player -> PotionHeal();
    std::stringstream ss;
    player -> ShowStorage(ss);
    EXPECT_EQ(ss.str(), "[1]Name: Potion\n   uses: 2\n");

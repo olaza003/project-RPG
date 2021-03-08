@@ -18,6 +18,7 @@ void postFightDialogue();
 void closeGameHandle();
 
 int main() {
+    srand(time(0));
     Setup();
     Character player;
     quick_intro(&player); //dia set to STORY_ONE.txt
@@ -27,15 +28,14 @@ int main() {
 
     while(floorCounter < 3){
         dia.sequence( preFightDia.at(floorCounter) );
-        preFightDialogue();
-
+        //preFightDialogue();
         isGameOver = gameOver( &player, mobs.at(floorCounter), floorCounter);
         
         if (isGameOver)
             exit(0);
 
         ++floorCounter;
-        postFightDialogue();
+        //postFightDialogue();
     }
     
     dia.sequence("[EPILOGUE]");

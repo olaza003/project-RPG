@@ -46,9 +46,8 @@ void Storage::DisplayStorage(std::ostream& cout)
 { 
   if(storage_len > 0){
     int counter = 1;
-    cout << endl;
     for(auto it : storage)
-       cout <<"[" << counter++ << "] " << it -> getDescription() << endl;
+       cout << endl <<"[" << counter++ << "] " << it -> getDescription() << endl;
   }
   else cout << ">>INVENTORY EMPTY" << endl;
 }

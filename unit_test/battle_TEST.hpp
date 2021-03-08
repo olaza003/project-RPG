@@ -305,7 +305,7 @@
         Character* player = new Character();
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
-        Victory(player);
+        Victory(player, 0);
         EXPECT_EQ(player -> getStrength(), 13);
         delete player;
     }
@@ -316,7 +316,7 @@
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
         player -> storeItem(new Potion());
-        Victory(player);
+        Victory(player, 0);
         EXPECT_EQ(player -> getStrength(), 13);
         delete player;
     }
@@ -327,7 +327,7 @@
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
         player -> storeItem(new Sword());
-        Victory(player);
+        Victory(player, 0);
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Sword. Damage: 9(5+4). Weapon Type: Sword.");
         delete player;
     }
@@ -338,7 +338,7 @@
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
         player -> storeItem(new Bow());
-        Victory(player);
+        Victory(player, 0);
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Bow. Damage: 8(5+3). Weapon Type: Bow.");
         delete player;
     }
@@ -349,7 +349,7 @@
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
         player -> storeItem(new Dagger());
-        Victory(player);
+        Victory(player, 0);
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Dagger. Damage: 7(5+2). Weapon Type: Dagger.");
         delete player;
     }
