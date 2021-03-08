@@ -14,9 +14,9 @@ class Weapon_Enchant: public Weapon {
         ~Weapon_Enchant(){delete enchItem;}
         std::string getName(){return name + ' ' + enchItem->getName();}
         std::string getDescription() {
-           std::string output = getName() + '.';
-            output = output + " Damage: " + std::to_string(getDmg()) + '(' + std::to_string(dmgVal) + "+" + std::to_string(enchItem->getDmg()) + ").";
-            output = output + " Weapon Type: " + enchItem->getType() + '.';
+           std::string output = getName();
+            output = output + "\nDamage: " + std::to_string(getDmg()) + '(' + std::to_string(dmgVal) + "+" + std::to_string(enchItem->getDmg()) + ")";
+            output = output + "\nWeapon Type: " + enchItem->getType();
            return output;
         }
 };

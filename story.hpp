@@ -39,6 +39,7 @@ char read(istream& input)
 
 void CharacterCreation(Character* p)
 {
+    p -> getStorage() -> add_Item(new Potion());
     cout << ">>These are the classes you can choose from:" << endl;
     
     cout << "  || Warriors specialize in dealing damage which will help with attacking" << endl;
@@ -53,7 +54,7 @@ void CharacterCreation(Character* p)
     
     do
     {
-        //menuOp = read(cin);
+        menuOp = read(cin);
         menuOp = toupper(menuOp);
         
         switch(menuOp)
@@ -103,7 +104,7 @@ void heal(Character* p)
 void enemyAction(Character* p, Monster* e)
 {
     int rng = rand() % 10 + 1;
-    if (rng >= 7)
+    if (rng <= 7)
     {
         cout << ">>ENEMY ATTACKED!" << endl;
         e -> attack(p);
@@ -117,7 +118,7 @@ void enemyAction(Character* p, Monster* e)
 
 bool battle(Character* player, Monster* enemy)
 {
-    cout << ">>An enemy has appeared!" << endl;
+    cout << endl << ">>An enemy has appeared!" << endl;
     
     while (player -> getHealth() > 0 && enemy -> getHealth() > 0)
     {
@@ -180,13 +181,15 @@ bool battle(Character* player, Monster* enemy)
 
 void Report(Character* p, int floor, ostream& cout)
 {
-    cout << "Number of monsters killed: " << floor << endl;
-    cout << "Number of items: " << p -> getStorage() -> getLength() << endl;
+    cout << ">>Number of monsters killed: " << floor << endl;
+    cout << ">>Number of items: " << p -> getStorage() -> getLength() << endl;
+    cout << ">>Items in inventory: " << endl << endl;
     p -> ShowStorage(cout);
 }
 
 void Upgrade(Character* p)
 {
+    cout << endl;
     if (p -> getAttackString() == "Warrior")
     {
         p -> setStrength(p -> getStrength() + 3);
@@ -206,10 +209,11 @@ void Upgrade(Character* p)
 
 void Enchant(Character* p)
 {
+    cout << endl;
     p -> changeWeapon();
     if (p -> getWeapon() != nullptr)
     {
-        cout << ">>NEW ENCHANTED WEAPON: " << endl;
+        cout << endl << ">>NEW ENCHANTED WEAPON: " << endl;
         p -> setWeapon(enchantments.FireEnchant(p -> getWeapon()));
         cout << p -> getWeapon() -> getDescription() << endl;
     }
@@ -220,35 +224,9 @@ void Enchant(Character* p)
     }
 }
 
-void Victory(Character* p)
-{
-    char victoryOp;
-    cout << endl << ">>You defeated the enemy!" << endl;
-    cout << ">>What would you like to do?" << endl;
-    
-    cout << "  || [1] LEVEL UP STAT" << endl;
-    cout << "  || [2] ENCHANT" << endl;
-    
-    do
-    {
-        cin >> victoryOp;
-        
-        switch(victoryOp)
-        {
-            case '1' :
-                Upgrade(p);
-                break;
-            case '2' :
-                Enchant(p);
-                break;
-            default : cout << ">>ERROR: INVALID OPTION" << endl << endl;
-        }
-    } while (victoryOp != '1' && victoryOp != '2');
-}
-
 void NewItem(Character* p, int floor)
 {
-    cout << endl << ">>You found a new weapon!" << endl;
+    cout << endl << ">>A weapon was dropped!" << endl;
     int val = 0;
     if (floor == 0)
     {
@@ -285,6 +263,35 @@ void NewItem(Character* p, int floor)
     }
 }
 
+void Victory(Character* p, int floor)
+{
+    char victoryOp;
+    p -> setHealth(-100);
+    p -> refillPotion();
+    cout << endl << ">>You defeated the enemy!" << endl;
+    NewItem(p, floor);
+    cout << ">>What would you like to do?" << endl;
+    
+    cout << "  || [1] LEVEL UP STAT" << endl;
+    cout << "  || [2] ENCHANT" << endl;
+    
+    do
+    {
+        cin >> victoryOp;
+        
+        switch(victoryOp)
+        {
+            case '1' :
+                Upgrade(p);
+                break;
+            case '2' :
+                Enchant(p);
+                break;
+            default : cout << ">>ERROR: INVALID OPTION" << endl << endl;
+        }
+    } while (victoryOp != '1' && victoryOp != '2');
+}
+
 bool gameOver(Character* p, Monster* e, int floor)
 {
     if (battle(p, e) == true)
@@ -293,8 +300,7 @@ bool gameOver(Character* p, Monster* e, int floor)
         Report(p, floor, cout);
         return true;
     }
-    Victory(p);
-    NewItem(p, floor);
+    Victory(p, floor);
     return false;
 }
 
