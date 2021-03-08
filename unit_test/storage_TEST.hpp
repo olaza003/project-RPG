@@ -95,4 +95,20 @@ TEST(PotionHeal, healPlayer){
    player-> PotionHeal();
    EXPECT_EQ(player->getHealth(), 100);
 }
+
+TEST(PotionNumber, refill)
+{
+   Character* player = new Character();
+   player -> storeItem(new Potion());
+   player -> ShowStorage(cout);
+   player -> PotionHeal(player);
+   std::stringstream ss;
+   player -> ShowStorage(ss);
+   EXPECT_EQ(ss.str(), "[1]Name: Potion\n   uses: 2\n");
+   player -> refillPotion();
+  // std::stringstream oss;
+   ss.str(std::string());
+   player -> ShowStorage(ss);
+   EXPECT_EQ(ss.str(), "[1]Name: Potion\n   uses: 3\n");
+}
 #endif
