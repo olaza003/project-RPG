@@ -376,7 +376,7 @@
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
         player -> storeItem(new Potion());
-        player -> setStrength(50);
+        player -> setStrength(100);
         bool gameOver = battle(player, enemy);
         EXPECT_EQ(0, enemy -> getHealth());
         EXPECT_EQ(false, gameOver);
@@ -392,7 +392,7 @@
         player -> setAttackType(new WarriorAttack());
         player -> storeItem(new Potion());
         player -> setSpeed(-5);
-        enemy -> setStrength(50);
+        enemy -> setStrength(105);
         bool gameOver = battle(player, enemy);
         EXPECT_EQ(0, player -> getHealth());
         EXPECT_EQ(true, gameOver);
@@ -409,7 +409,7 @@ TEST(TestGameOver, Win)
     player -> setAttackType(new WarriorAttack());
     player -> setAttackString("Warrior");
     player -> storeItem(new Potion());
-    player -> setStrength(50);
+    player -> setStrength(100);
     bool game = gameOver(player, enemy, 0);
     EXPECT_EQ(0, enemy -> getHealth());
     EXPECT_EQ(false, game);
@@ -426,7 +426,7 @@ TEST(TestGameOver, Loss)
     player -> setAttackString("Warrior");
     player -> storeItem(new Potion());
     player -> setSpeed(-5);
-    enemy -> setStrength(50);
+    enemy -> setStrength(105);
     bool game = gameOver(player, enemy, 1);
     EXPECT_EQ(0, player -> getHealth());
     EXPECT_EQ(true, game);
