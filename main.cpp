@@ -23,14 +23,15 @@ int main() {
     quick_intro(&player); //dia set to STORY_ONE.txt
 
     int floorCounter = 0;
+    bool isGameOver;
 
     while(floorCounter < 3){
         dia.sequence( preFightDia.at(floorCounter) );
         preFightDialogue();
 
-        gameOver( &player, mobs.at(floorCounter), floorCounter);
+        isGameOver = gameOver( &player, mobs.at(floorCounter), floorCounter);
         
-        if (gameOver)
+        if (isGameOver)
             exit(0);
 
         ++floorCounter;
