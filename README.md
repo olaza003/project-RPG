@@ -25,17 +25,23 @@ Design Patterns:
 * To further highlight the Strategy Pattern of this diagram, the character class under the abstract class *Entity* will inherit its virtual function. It also has aggregation towards items and characterAttack. CharacterAttack will have to be able to use CharacterCreation to create different types of character for the game. In which we see WarriorAttack, KnightAttack, HunterAttack, etc. have their own attack function.
  
 * As for the Decorator Pattern, it will have items class under it. In which would have an abstract weapon and consumable inheriting from it. Further down the weapon class would have types of weapons such as wand, sword, and bow be used by unique characters. As for consumables, since they will have limited uses, an int-variable would be used to indicate when they should be used up. 
-
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+
  ## Installation/Usage
- > Instructions on installing and running your application
+Step 1: Download all files from executable folder
+Step 2: Compile all cpp files and run them in a main executable
+ * Install cmake in machine and run the following commands in your terminal inside of the executable directory:
+     * $ cmake . 
+     * $ make
+     * $ ./main
+OR
+ * Compile each file manually using g++:
+     * $ g++ -std=c++11 -o main main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
+     * $ ./main
+Step 3: Play game
+
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Our project was tested and validated using googletest to run unit tests on each function used and integration tests using multiple functions together, as well as extensive play testing using the ./main executable. Every test that was used is in the unit_test folder in the repository, as well as the early versions of some of these tests in the legacyTESTING folder. 
  
