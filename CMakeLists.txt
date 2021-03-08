@@ -13,6 +13,7 @@ ADD_EXECUTABLE(test
 )
 
 ADD_EXECUTABLE(main
+   main.cpp
    entities.cpp
    sequenceManager/seqMan.cpp
    items/protoITEMS/storage.cpp
