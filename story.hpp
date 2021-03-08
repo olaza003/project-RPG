@@ -168,7 +168,7 @@ void Report(Character* p, int floor, ostream& cout)
 {
     cout << ">>Number of monsters killed: " << floor << endl;
     cout << ">>Number of items: " << p -> getStorage() -> getLength() << endl;
-    cout << ">>Items in inventory: " << endl << endl;
+    cout << ">>Items in inventory: " << endl;
     p -> ShowStorage(cout);
 }
 
