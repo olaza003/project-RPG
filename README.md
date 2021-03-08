@@ -30,16 +30,16 @@ Design Patterns:
  > Screenshots of the input/output after running your application
 
  ## Installation/Usage
-Step 1: Download all files from executable folder
+Step 1: Download all files from executable folder <br>
 Step 2: Compile all cpp files and run them in a main executable
  * Install cmake in machine and run the following commands in your terminal inside of the executable directory:
      * $ cmake . 
      * $ make
-     * $ ./main
+     * $ ./main <br>
 OR
  * Compile each file manually using g++:
      * $ g++ -std=c++11 -o main main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
-     * $ ./main
+     * $ ./main <br>
 Step 3: Play game
 
  ## Testing
