@@ -10,12 +10,12 @@ Weapon* Storage::getItem(int place)
    int val = place - 1; //we would have to decrement it because the 
 			//display starts at 1
    if(storage.at(val) -> getItemType() == 1){
-	std::cout << "Item is not a weapon" << endl;
+	std::cout << ">>ERROR: ITEM IS NOT A WEAPON" << endl;
                 return nullptr;
             }
    else{
        if(val >= storage.size()){
-           std::cout <<" There's no item in the slot" << endl;
+           std::cout <<">>NO ITEM IN SLOT" << endl;
            return NULL;
         }
         else{
@@ -46,22 +46,31 @@ void Storage::DisplayStorage(std::ostream& cout)
 { 
   if(storage_len > 0){
     int counter = 1;
+    cout << endl;
     for(auto it : storage)
-       cout <<"[" << counter++ << "]" << it -> getDescription() << endl;
+       cout <<"[" << counter++ << "] " << it -> getDescription() << endl;
   }
-  else cout << "There's nothing in your inventory" << endl;
+  else cout << ">>INVENTORY EMPTY" << endl;
 }
 
-void Storage::heal(Entity* object){
+bool Storage::heal(Entity* object){
             for(auto it : storage)
             {
                 if(it -> getItemType() == 1 && it -> getName() == "Potion"){
-                    std::cout << "test" << endl;
                     if(dynamic_cast<Consumable*>(it) -> getUses() > 0)
+                    {
+                        cout << ">>PLAYER HEALED!" << endl;
                         dynamic_cast<Consumable*>(it) -> use(object);
-                    else std::cout <<"Potion has " << dynamic_cast<Consumable*>(it) -> getUses() << endl;
+                        std::cout <<">>POTIONS LEFT: " << dynamic_cast<Consumable*>(it) -> getUses() << endl;
+                        return true;
+                    }
+                    else
+                    {
+                        std::cout << ">>ERROR: POTION EMPTY, CHOOSE ANOTHER OPTION" << endl;
+                    }
                 }
             }
+            return false;
         }
         
 void Storage:: displayPotion()

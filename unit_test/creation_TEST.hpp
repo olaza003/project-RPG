@@ -8,6 +8,8 @@
 TEST(CharacterCreation, CheckWarrior)
 {
     Character* player = new Character();
+    std::istringstream iss("w");
+    menuOp = read(iss);
     CharacterCreation(player);
     EXPECT_EQ(player -> getAttackString(), "Warrior");
     delete player;
@@ -16,6 +18,8 @@ TEST(CharacterCreation, CheckWarrior)
 TEST(CharacterCreation, CheckKnight)
 {
     Character* player = new Character();
+    std::istringstream iss("k");
+    menuOp = read(iss);
     CharacterCreation(player);
     EXPECT_EQ(player -> getAttackString(), "Knight");
     delete player;
@@ -24,6 +28,8 @@ TEST(CharacterCreation, CheckKnight)
 TEST(CharacterCreation, CheckHunter)
 {
     Character* player = new Character();
+    std::istringstream iss("h");
+    menuOp = read(iss);
     CharacterCreation(player);
     EXPECT_EQ(player -> getAttackString(), "Hunter");
     delete player;
@@ -33,6 +39,8 @@ TEST(CreationAttack, TestWarrior)
 {
     Character* player = new Character();
     Monster* enemy = new Monster();
+    std::istringstream iss("w");
+    menuOp = read(iss);
     CharacterCreation(player);
     player -> attack(enemy);
     EXPECT_EQ(enemy -> getHealth(), 88);
@@ -44,6 +52,8 @@ TEST(CreationAttack, TestKnight)
 {
     Character* player = new Character();
     Monster* enemy = new Monster();
+    std::istringstream iss("k");
+    menuOp = read(iss);
     CharacterCreation(player);
     player -> attack(enemy);
     EXPECT_EQ(enemy -> getHealth(), 92);
@@ -55,6 +65,8 @@ TEST(CreationAttack, TestHunter)
 {
     Character* player = new Character();
     Monster* enemy = new Monster();
+    std::istringstream iss("h");
+    menuOp = read(iss);
     CharacterCreation(player);
     player -> attack(enemy);
     EXPECT_EQ(enemy -> getHealth(), 88);

@@ -11,23 +11,49 @@
 using namespace std;
 
 char battleOp;
+char menuOp;
+vector<Weapon*> T1weapons;
+vector<Weapon*> T2weapons;
+vector<Weapon*> T3weapons;
+EnchantFactory enchantments;
+
+void fillWeapons()
+{
+    T1weapons.push_back(new Sword(9, "Bronze Sword"));
+    T1weapons.push_back(new Bow(8, "Wooden Bow"));
+    T1weapons.push_back(new Dagger(7, "Bronze Dagger"));
+    T2weapons.push_back(new Sword(14, "Silver Sword"));
+    T2weapons.push_back(new Bow(13, "Bamboo Bow"));
+    T2weapons.push_back(new Dagger(12, "Silver Dagger"));
+    T3weapons.push_back(new Sword(19, "Gold Sword"));
+    T3weapons.push_back(new Bow(18, "Crossbow"));
+    T3weapons.push_back(new Dagger(17, "Gold Dagger"));
+}
+
+char read(istream& input)
+{
+    char in;
+    input >> in;
+    return in;
+}
 
 void CharacterCreation(Character* p)
 {
-    char menuOp;
     cout << ">>These are the classes you can choose from:" << endl;
     
     cout << "  || Warriors specialize in dealing damage which will help with attacking" << endl;
     cout << "  || Knights specialize in defense which will help with defending" << endl;
     cout << "  || Hunters specialize in speed which will help with dodging" << endl;
     
-    cout << ">>Type 'W' for Warrior" << endl;
-    cout << ">>Type 'K' for Knight" << endl;
-    cout << ">>Type 'H' for Hunter" << endl;
+    cout << ">>Choose your class:" << endl;
+    
+    cout << "  || [W] WARRIOR" << endl;
+    cout << "  || [K] KNIGHT" << endl;
+    cout << "  || [H] HUNTER" << endl;
     
     do
     {
-        cin >> menuOp;
+        //menuOp = read(cin);
         menuOp = toupper(menuOp);
         
         switch(menuOp)
@@ -44,7 +70,7 @@ void CharacterCreation(Character* p)
                 p -> setAttackType(new HunterAttack());
                 p -> setAttackString("Hunter");
                 break;
-            default : cout << "Invalid Character, try again:" << endl << endl;
+            default : cout << ">>ERROR: INVALID OPTION" << endl << endl;
         }
     } while (menuOp != 'W' && menuOp != 'K' && menuOp != 'H');
 }
@@ -64,21 +90,16 @@ void dodge(Character* p)
         p -> setDodge(false);
 }
 
+
 void heal(Character* p)
 {
-    if (p -> getHeals() == 0)
+    if (!p -> PotionHeal())
     {
-        cout << ">>OUT OF HEALS!" << endl;
         battleOp = ' ';
-        return;
     }
-    
-    p -> setHealth(-20);
-    p -> setHeals(p -> getHeals() - 1);
-    cout << ">>HEALED FOR: 20" << endl;
-    cout << ">>HEALS REMAINING: " << p -> getHeals() << endl;
 }
 
+ 
 void enemyAction(Character* p, Monster* e)
 {
     int rng = rand() % 10 + 1;
@@ -107,11 +128,11 @@ bool battle(Character* player, Monster* enemy)
             cout << "     Enemy Health: " << enemy -> getHealth() << endl;
             
             cout << ">>What do you want to do?" << endl;
-            cout << "  || Type 1 to attack" << endl;
-            cout << "  || Type 2 to defend" << endl;
-            cout << "  || Type 3 to dodge" << endl;
-            //cout << "  || Type 4 to check inventory" << endl;
-            cout << "  || Type 5 to heal" << endl;
+            cout << "  || [1] ATTACK" << endl;
+            cout << "  || [2] DEFEND" << endl;
+            cout << "  || [3] DODGE" << endl;
+            cout << "  || [4] CHANGE WEAPON" << endl;
+            cout << "  || [5] HEAL" << endl;
             
             cin >> battleOp;
             
@@ -133,14 +154,13 @@ bool battle(Character* player, Monster* enemy)
                     cout << ">>PLAYER TRIED TO DODGE!" << endl;
                     dodge(player);
                     break;
-                //case 4 :
-                    //cout << ">>CHECKING INVENTORY!" << endl;
-                    //player -> getInventory();
-                    //break;
+                case '4' :
+                    cout << ">>CHANGING WEAPON!" << endl;
+                    player -> changeWeapon();
+                    break;
                 case '5' :
                     player -> setDefend(false);
                     player -> setDodge(false);
-                    cout << ">>PLAYER HEALED!" << endl;
                     heal(player);
                     break;
                 default : cout << ">>ERROR, INVALID OPTION" << endl;
@@ -158,70 +178,124 @@ bool battle(Character* player, Monster* enemy)
         return false;
 }
 
-void Report(Character* p)
+void Report(Character* p, int floor, ostream& cout)
 {
-    cout << "Number of monsters killed: " << floorCounter << endl;
-    cout << "Number of items: " << p -> getStorage() -> storage.size() << endl;
+    cout << "Number of monsters killed: " << floor << endl;
+    cout << "Number of items: " << p -> getStorage() -> getLength() << endl;
+    p -> ShowStorage(cout);
 }
 
 void Upgrade(Character* p)
 {
-    char upgradeOp;
-    cout << "You defeated the enemy!" << endl;
-    cout << "What would you like to do?" << endl;
+    if (p -> getAttackString() == "Warrior")
+    {
+        p -> setStrength(p -> getStrength() + 3);
+        cout << "NEW STRENGTH: " << p -> getStrength() << endl;
+    }
+    else if (p -> getAttackString() == "Knight")
+    {
+        p -> setDefense(p -> getDefense() + 3);
+        cout << "NEW DEFENSE: " << p -> getDefense() << endl;
+    }
+    else if (p -> getAttackString() == "Hunter")
+    {
+        p -> setSpeed(p -> getSpeed() + 3);
+        cout << "NEW SPEED: " << p -> getSpeed() << endl;
+    }
+}
+
+void Enchant(Character* p)
+{
+    p -> changeWeapon();
+    if (p -> getWeapon() != nullptr)
+    {
+        cout << ">>NEW ENCHANTED WEAPON: " << endl;
+        p -> setWeapon(enchantments.FireEnchant(p -> getWeapon()));
+        cout << p -> getWeapon() -> getDescription() << endl;
+    }
+    else
+    {
+        cout << ">>ERROR: NO WEAPON, LEVELING UP STAT..." << endl;
+        Upgrade(p);
+    }
+}
+
+void Victory(Character* p)
+{
+    char victoryOp;
+    cout << endl << ">>You defeated the enemy!" << endl;
+    cout << ">>What would you like to do?" << endl;
     
-    cout << "Type 1 to level up your dedicated stat" << endl;
-    cout << "Type 2 to enchant one of your weapons" << endl;
+    cout << "  || [1] LEVEL UP STAT" << endl;
+    cout << "  || [2] ENCHANT" << endl;
     
     do
     {
-        cin >> upgradeOp;
-        upgradeOp = toupper(upgradeOp);
+        cin >> victoryOp;
         
-        switch(upgradeOp)
+        switch(victoryOp)
         {
             case '1' :
-                if (p -> getAttackString() == "Warrior")
-                {
-                    p -> setStrength(p -> getStrength() + 1);
-                    cout << "New Strength: " p -> getStrength() << endl;
-                }
-                else if (p -> getAttackString() == "Knight")
-                {
-                    p -> setDefense(p -> getDefense() + 1);
-                    cout << "New Defense: " p -> getDefense() << endl;
-                }
-                else if (p -> getAttackString() == "Hunter")
-                {
-                    p -> setSpeed(p -> getSpeed() + 1);
-                    cout << "New Speed: " p -> getSpeed() << endl;
-                }
+                Upgrade(p);
                 break;
             case '2' :
-                //Enchant* e = new Enchant(p -> getStorage() -> get);
-                //e -> enchant(p -> getWeapon());
+                Enchant(p);
                 break;
-            default : cout << "Invalid Character, try again:" << endl << endl;
+            default : cout << ">>ERROR: INVALID OPTION" << endl << endl;
         }
-    } while (menuOp != '1' && menuOp != '2');
+    } while (victoryOp != '1' && victoryOp != '2');
 }
 
-void NewItem(Character* p)
+void NewItem(Character* p, int floor)
 {
-    cout << "You found a new weapon!" << endl;
-    p -> getStorage() -> add_Item(w -> getWeapon());
+    cout << endl << ">>You found a new weapon!" << endl;
+    int val = 0;
+    if (floor == 0)
+    {
+        if (p -> getAttackString() == "Warrior")
+            val = 0;
+        else if (p -> getAttackString() == "Knight")
+            val = 1;
+        else if (p -> getAttackString() == "Hunter")
+            val = 2;
+        p -> getStorage() -> add_Item(T1weapons.at(val));
+        cout << T1weapons.at(val) -> getDescription() << endl;
+    }
+    else if (floor == 1)
+    {
+        if (p -> getAttackString() == "Warrior")
+            val = 0;
+        else if (p -> getAttackString() == "Knight")
+            val = 1;
+        else if (p -> getAttackString() == "Hunter")
+            val = 2;
+        p -> getStorage() -> add_Item(T2weapons.at(val));
+        cout << T2weapons.at(val) -> getDescription() << endl;
+    }
+    else if (floor == 2)
+    {
+        if (p -> getAttackString() == "Warrior")
+            val = 0;
+        else if (p -> getAttackString() == "Knight")
+            val = 1;
+        else if (p -> getAttackString() == "Hunter")
+            val = 2;
+        p -> getStorage() -> add_Item(T3weapons.at(val));
+        cout << T3weapons.at(val) -> getDescription() << endl;
+    }
 }
 
-void gameOver(Character* p, Monster* e)
+bool gameOver(Character* p, Monster* e, int floor)
 {
     if (battle(p, e) == true)
     {
-        cout << "GAME OVER";
-        Report(p);
-        exit(0);
+        cout << endl << "GAME OVER" << endl << endl;
+        Report(p, floor, cout);
+        return true;
     }
-    Upgrade(p);
-    NewItem(p);
+    Victory(p);
+    NewItem(p, floor);
+    return false;
 }
 
 #endif
