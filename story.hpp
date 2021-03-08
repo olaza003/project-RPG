@@ -12,23 +12,8 @@ using namespace std;
 
 char battleOp;
 char menuOp;
-vector<Weapon*> T1weapons;
-vector<Weapon*> T2weapons;
-vector<Weapon*> T3weapons;
 EnchantFactory enchantments;
 
-void fillWeapons()
-{
-    T1weapons.push_back(new Sword(9, "Bronze Sword"));
-    T1weapons.push_back(new Bow(8, "Wooden Bow"));
-    T1weapons.push_back(new Dagger(7, "Bronze Dagger"));
-    T2weapons.push_back(new Sword(14, "Silver Sword"));
-    T2weapons.push_back(new Bow(13, "Bamboo Bow"));
-    T2weapons.push_back(new Dagger(12, "Silver Dagger"));
-    T3weapons.push_back(new Sword(19, "Gold Sword"));
-    T3weapons.push_back(new Bow(18, "Crossbow"));
-    T3weapons.push_back(new Dagger(17, "Gold Dagger"));
-}
 
 char read(istream& input)
 {
@@ -226,41 +211,24 @@ void Enchant(Character* p)
 
 void NewItem(Character* p, int floor)
 {
+    vector<string> tierTypeName = {"Bronze Sword","Silver Sword", "Gold Sword",
+                                    "Wooden Bow","Bamboo Bow","Crossbow",
+                                    "Bronze Dagger","Silver Dagger","Gold Dagger"};
+
     cout << endl << ">>A weapon was dropped!" << endl;
     int val = 0;
-    if (floor == 0)
-    {
-        if (p -> getAttackString() == "Warrior")
-            val = 0;
-        else if (p -> getAttackString() == "Knight")
-            val = 1;
-        else if (p -> getAttackString() == "Hunter")
-            val = 2;
-        p -> getStorage() -> add_Item(T1weapons.at(val));
-        cout << T1weapons.at(val) -> getDescription() << endl;
-    }
-    else if (floor == 1)
-    {
-        if (p -> getAttackString() == "Warrior")
-            val = 0;
-        else if (p -> getAttackString() == "Knight")
-            val = 1;
-        else if (p -> getAttackString() == "Hunter")
-            val = 2;
-        p -> getStorage() -> add_Item(T2weapons.at(val));
-        cout << T2weapons.at(val) -> getDescription() << endl;
-    }
-    else if (floor == 2)
-    {
-        if (p -> getAttackString() == "Warrior")
-            val = 0;
-        else if (p -> getAttackString() == "Knight")
-            val = 1;
-        else if (p -> getAttackString() == "Hunter")
-            val = 2;
-        p -> getStorage() -> add_Item(T3weapons.at(val));
-        cout << T3weapons.at(val) -> getDescription() << endl;
-    }
+    Item* hold;
+    if (p -> getAttackString() == "Warrior")
+        hold = new Sword(9 + 5*floor, tierTypeName.at(floor));
+
+    else if (p -> getAttackString() == "Knight")
+        hold = new Bow(8 + 5*floor, tierTypeName.at(floor + 3));
+
+    else if (p -> getAttackString() == "Hunter")
+        hold = new Dagger(7 + 5*floor, tierTypeName.at(floor + 6));
+
+    p -> getStorage() -> add_Item(hold);
+    cout << hold -> getDescription() << endl;
 }
 
 void Victory(Character* p, int floor)

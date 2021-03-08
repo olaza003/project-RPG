@@ -94,10 +94,10 @@ void Character::changeWeapon(){
             unEquip();
         }
         store ->DisplayStorage(std::cout );
-        std::cout<< ">>SELECT ITEM: ";
         char choice;
         bool a = false;
         do{
+            std::cout<< ">>SELECT ITEM: ";
             cin >> choice;
             int choose = choice - '0';
             if(choose - 1 < store ->getLength() && choose > 0 ){ 
