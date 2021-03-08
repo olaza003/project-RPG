@@ -101,10 +101,8 @@ void Character::changeWeapon(){
             cin >> choose;
             if(choose - 1 < store ->getLength() && choose > 0 ){ 
                 weapon =store ->getItem(choose);
-                if(weapon == nullptr){
-                    std::cout << ">>ERROR: NOT A WEAPON" << endl;
-                }
-                else a = true;
+                if(weapon != nullptr)
+                    a = true;
             }
             else std::cout << ">>ERROR: INVALID OPTION: " << endl;
         }while(a != true);

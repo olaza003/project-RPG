@@ -48,7 +48,7 @@ class Monster : public Entity {
             }
         }
     public:
-        Monster(int h = 100, int s = 20){health = h; strength = s;}
+        Monster(int h = 100, int s = 15){health = h; strength = s;}
         void attack(Entity* player){
             defend = false;
             player->takeAttack( this->getStrength() );
