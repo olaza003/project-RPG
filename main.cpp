@@ -28,7 +28,7 @@ int main() {
     bool isGameOver;
 
     cin.clear();
-    cin.ignore(INT_MAX, '\n');
+    cin.ignore(1, '\n');
 
     while(floorCounter < 3){
         dia.sequence( preFightDia.at(floorCounter) );
@@ -118,7 +118,7 @@ void preFightDialogue(int floor){
 void postFightDialogue(int floor) {
     string hold;
     cin.clear();
-    cin.ignore(INT_MAX, '\n');
+    cin.ignore(1, '\n');
     for(int i = 0; i < 30; ++i){
         cout << "-----";
     } cout << endl;
