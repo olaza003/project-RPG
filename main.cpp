@@ -29,6 +29,9 @@ int main() {
         preFightDialogue();
 
         gameOver( &player, mobs.at(floorCounter), floorCounter);
+        
+        if (gameOver)
+            exit(0);
 
         ++floorCounter;
         postFightDialogue();
@@ -48,6 +51,7 @@ void Setup(){
     mobs.push_back(new Monster());
     mobs.push_back(new Monster());
     mobs.push_back(new Monster());
+    fillWeapons();
     currSeqDia.push_back("[FLOOR_ONE]");
     currSeqDia.push_back("[FLOOR_TWO]");
     currSeqDia.push_back("[FLOOR_THREE]");
