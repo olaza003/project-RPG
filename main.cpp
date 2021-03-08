@@ -37,7 +37,7 @@ int main() {
         
         if(isGameOver){
             closeGameHandle();
-            exit(0);
+            return 0;
         }
 
         postFightDialogue(floorCounter);
