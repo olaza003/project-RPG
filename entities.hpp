@@ -101,6 +101,7 @@ class Character : public Entity {
         void setWeapon(Weapon* w){ weapon = w; }
         Weapon* getWeapon(){return weapon;}
         Storage* getStorage(){return store;}
+	      void refillPotion();
 };
 
 #endif //__ENTITIES_HPP__

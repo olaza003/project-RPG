@@ -14,6 +14,8 @@ Character::Character(){
 Character::~Character(){ 
 	delete attackType;
 	delete store;
+        if(weapon != nullptr)
+	   delete weapon;
  }
 
 void Character::takeAttack(int damage){
@@ -130,4 +132,11 @@ bool Character::PotionHeal(){
 
 void Character::storeItem(Item* item){store ->add_Item(item);}
 void Character::ShowStorage(std::ostream& cout){store ->DisplayStorage(cout);}
-
+void Character::refillPotion()
+{
+   if(store -> consumInStorage()){
+	store -> refill();
+	std::cout << "Potions refilled" << endl;
+   }
+   else std::cout << "No potion in storage" << endl;
+}
