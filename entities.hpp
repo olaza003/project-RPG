@@ -95,6 +95,7 @@ class Character : public Entity {
         void ShowStorage(std::ostream& cout);
         void PotionHeal(Entity*);
         Weapon* getWeapon(){return weapon;}
+	void refillPotion();
 };
 
 #endif //__ENTITIES_HPP__

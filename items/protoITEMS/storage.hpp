@@ -35,6 +35,7 @@ class Storage
 	void heal(Entity*);
 	void displayPotion();
         int getLength(){ return storage_len;}
+	void refill();
 };
 
 #endif

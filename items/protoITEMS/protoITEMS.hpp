@@ -36,6 +36,7 @@ class Consumable: public Item{ //getDescription is not overloaded. Adds new virt
         int getUses() {return uses;}
         virtual void use(Entity*) = 0;
 	void Use_Item(){uses--;} //added this function
+	void recharge(){uses = 3;}
 };
 
 class Potion: public Consumable{
