@@ -13,8 +13,9 @@ void quick_intro(Character*);
 vector<Monster*> mobs; //fill with pre-generated Monsters
 vector<string> currSeqDia;
 vector<string> preFightDia;
-void preFightDialogue();
-void postFightDialogue();
+std::string CharacterName;
+void preFightDialogue(int);
+void postFightDialogue(int);
 void closeGameHandle();
 
 int main() {
@@ -26,16 +27,21 @@ int main() {
     int floorCounter = 0;
     bool isGameOver;
 
+    cin.clear();
+    cin.ignore(INT_MAX, '\n');
+
     while(floorCounter < 3){
         dia.sequence( preFightDia.at(floorCounter) );
-        //preFightDialogue();
+        preFightDialogue(floorCounter);
         isGameOver = gameOver( &player, mobs.at(floorCounter), floorCounter);
         
-        if (isGameOver)
+        if(isGameOver){
+            closeGameHandle();
             exit(0);
+        }
 
+        postFightDialogue(floorCounter);
         ++floorCounter;
-        //postFightDialogue();
     }
     
     dia.sequence("[EPILOGUE]");
@@ -66,12 +72,16 @@ void Setup(){
 
 }
 
-void closeGameHandle(){}
+void closeGameHandle(){
+    for(int i = 0; i < mobs.size(); ++i){
+        delete mobs.at(i);
+    }
+}
 
 void quick_intro(Character* player){
     dia.file("Dialogue/STORY_ONE.txt"); dia.sequence("[INTRODUCTION]");
     dia.OUT(); //ask for player name
-    //cin >> userInput; player.setName(userInput);
+    cout << ">>ENTER CHARACTER NAME: "; getline(cin, CharacterName);
 
     dia.OUT(); //ask for character class
     CharacterCreation(player);
@@ -80,10 +90,32 @@ void quick_intro(Character* player){
     //output list of weapons
     //cin >> item choices
 
-    dia.OUT(); //verify choices
+    //dia.OUT(); //verify choices
     //player's choice outputs
 }
 
-void preFightDialogue(){
+void preFightDialogue(int floor){
+    string hold;
+    for(int i = 0; i < 30; ++i){
+        cout << "-----";
+    } cout << endl;
+    dia.sequence( preFightDia.at(floor) );
+    for(int i = 0; i < dia.getNumSubSeq(); ++i){
+        dia.OUT(); 
+        cout << ">>::::PRESS ENTER TO CONTINUE::::<< "; getline(std::cin, hold);
+    }
+}
 
+void postFightDialogue(int floor) {
+    string hold;
+    cin.clear();
+    cin.ignore(INT_MAX, '\n');
+    for(int i = 0; i < 30; ++i){
+        cout << "-----";
+    } cout << endl;
+    dia.sequence( currSeqDia.at(floor) );
+    for(int i = 0; i < dia.getNumSubSeq(); ++i){
+        dia.OUT(); 
+        cout << ">>::::PRESS ENTER TO CONTINUE::::<< "; getline(std::cin, hold);
+    }
 }
