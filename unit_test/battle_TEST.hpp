@@ -306,7 +306,6 @@
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
         player -> storeItem(new Sword());
-        fillWeapons();
         Victory(player, 0);
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Sword\nDamage: 9(5+4)\nWeapon Type: Sword");
         delete player;
@@ -318,7 +317,6 @@
         player -> setAttackType(new KnightAttack());
         player -> setAttackString("Knight");
         player -> storeItem(new Bow());
-        fillWeapons();
         Victory(player, 0);
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Bow\nDamage: 8(5+3)\nWeapon Type: Bow");
         delete player;
@@ -330,7 +328,6 @@
         player -> setAttackType(new HunterAttack());
         player -> setAttackString("Hunter");
         player -> storeItem(new Dagger());
-        fillWeapons();
         Victory(player, 0);
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Fiery Dagger\nDamage: 7(5+2)\nWeapon Type: Dagger");
         delete player;
@@ -343,7 +340,6 @@
         Character* player = new Character();
         player -> setAttackType(new WarriorAttack());
         player -> setAttackString("Warrior");
-        fillWeapons();
         NewItem(player, 0);
         player -> changeWeapon();
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bronze Sword\nDamage: 9\nWeapon Type: Sword");
@@ -354,7 +350,6 @@
         Character* player = new Character();
         player -> setAttackType(new KnightAttack());
         player -> setAttackString("Knight");
-        fillWeapons();
         NewItem(player, 1);
         player -> changeWeapon();
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bamboo Bow\nDamage: 13\nWeapon Type: Bow");
@@ -365,7 +360,6 @@
         Character* player = new Character();
         player -> setAttackType(new HunterAttack());
         player -> setAttackString("Hunter");
-        fillWeapons();
         NewItem(player, 2);
         player -> changeWeapon();
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Gold Dagger\nDamage: 17\nWeapon Type: Dagger");
@@ -407,7 +401,6 @@ TEST(TestGameOver, Win)
     Monster* enemy = new Monster();
     player -> setAttackType(new WarriorAttack());
     player -> setAttackString("Warrior");
-    fillWeapons();
     player -> storeItem(new Potion());
     bool game = gameOver(player, enemy, 0);
     EXPECT_EQ(0, enemy -> getHealth());
@@ -422,7 +415,6 @@ TEST(TestGameOver, Loss)
     Monster* enemy = new Monster();
     player -> setAttackType(new WarriorAttack());
     player -> setAttackString("Warrior");
-    fillWeapons();
     player -> storeItem(new Potion());
     bool game = gameOver(player, enemy, 1);
     EXPECT_EQ(0, player -> getHealth());

@@ -58,7 +58,6 @@ void Setup(){
     mobs.push_back(new Monster());
     mobs.push_back(new Monster());
     mobs.push_back(new Monster());
-    fillWeapons();
     currSeqDia.push_back("[FLOOR_ONE]");
     currSeqDia.push_back("[FLOOR_TWO]");
     currSeqDia.push_back("[FLOOR_THREE]");
@@ -76,15 +75,6 @@ void closeGameHandle(){
     for(int i = 0; i < mobs.size(); ++i){
         delete mobs.at(i);
     }
-    for (auto i : T1weapons){
-        delete i;
-    }
-    for (auto i : T2weapons){
-        delete i;
-    }
-    for (auto i : T3weapons){
-        delete i;
-    }
 }
 
 void quick_intro(Character* player){
@@ -95,7 +85,7 @@ void quick_intro(Character* player){
     dia.OUT(); //ask for character class
     CharacterCreation(player);
 
-    dia.OUT(); //ask for itens for player to take
+    //dia.OUT(); //ask for itens for player to take
     //output list of weapons
     //cin >> item choices
 

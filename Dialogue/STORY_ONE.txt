@@ -1,62 +1,72 @@
 [NAME] 1
 DUNGEON CRAWLER(TM)
 [INTRODUCTION] 9 1 1 1
-::A voice speaks to you.
-::"A letter came in today. 'U R G E N T' written on it in big, bold, red letters. It's another search request. This makes it the fifth one today.
-::We need you to take this one since we can't afford to refuse. Royal Orders, y'know? Especially since we need the funding.
-::We're short staffed having everyone else deal with the other requests so you are going to have to go alone for this one.
-::We'll let you have a few items we have left in the back, but that's the best we can do. You're going to have to make due with what you have on you.
+:: A voice speaks to you.
+:: "A letter came in today. 'U R G E N T' written on it in big, bold, red letters. It's another search request. This makes it the fifth one today.
+:: We need you to take this one since we can't afford to refuse. Royal Orders, y'know? Especially since we need the funding.
+:: We're short staffed having everyone else deal with the other requests so you are going to have to go alone for this one.
+:: We'll let you have a few items we have left in the back, but that's the best we can do. You're going to have to make due with what you have on you.
 ::
-::Now I know how everyone thinks this is a waste of time, but I need you to fill out this form. Standard procedure 'n all.
+:: Now I know how everyone thinks this is a waste of time, but I need you to fill out this form. Standard procedure 'n all.
 ::
-::So can you give me your name?"
-::"And your class type?"
-::"Great. Phenomenal. Now here's a list of a items you can take. Sadly, we can literally only afford to give you two so choose wisely."
-::"I'll read it back to you just to make sure that everything's correct. Just tell me if there's anything that should be fixed."
+:: So can you give me your name?"
+:: "And your class type?"
+:: "Great. Phenomenal. Now here's a list of a items you can take. Sadly, we can literally only afford to give you two so choose wisely."
+:: "I'll read it back to you just to make sure that everything's correct. Just tell me if there's anything that should be fixed."
 [FLOOR_ONE_ENTER] 7 7
-::The request included a rather vague set of directions, but it was enough to get where you needed to go.
-::This time, the location is a dungeon. Not the first time a search request has sent you to one so it probably won't take long, you hope.
+:: The request included a rather vague set of directions, but it was enough to get where you needed to go.
+:: This time, the location is a dungeon. Not the first time a search request has sent you to one so it probably won't take long, you hope.
 ::
-::The entrance is located deep within a dense forest; rays of sunlight beaming through the trees. The wind passing through the tress - softly rustling the leaves.
-::A calm feeling flows through you.
+:: The entrance is located deep within a dense forest; rays of sunlight beaming through the trees. The wind passing through the tress - softly rustling the leaves.
+:: A calm feeling flows through you.
 ::
-::You walk inside, and immediantly, that calm feeling is flushed, and instead, you are on high alert. You are now at the mercy of the dungeon.
-::You look around and see no signs that suggest that anyone was near by. There are lit torches on the wall, but these seem to
-::belong to the dungeon. The missing person must be deeper inside.
+:: You walk inside, and immediantly, that calm feeling is flushed out, and instead, you are on high alert. You are now at the mercy of the dungeon.
+:: You look around and see no signs that suggest that anyone was near by. There are lit torches on the wall, but these seem to
+:: belong to the dungeon. The missing person must be deeper inside.
 ::
-::There is only one passage forward so you take that path. Unlike the fresh air outside, the air here is rancid and awful.
+:: There is only one passage forward so you take that path. Unlike the fresh air outside, the air here is rancid and awful.
 ::
-::Walking further down the passage, you hear growls and footsteps ahead. A werewolf -rotten and disfigured- blocks your path.
-::You can not run away and it has already seen you. You are left to fight it.
+:: Walking further down the passage, you hear growls and footsteps ahead. A werewolf -rotten and disfigured- blocks your path.
+:: You can not run away and it has already seen you. You are left to fight it.
 [FLOOR_ONE]
-::The monster is slain, rewards had been acquired and you continue further down the passage.
+:: The monster is slain, rewards had been acquired and you continue further down the passage.
 ::
-::At the end, there is a stairway that leads further down into the dungeon. Before heading down, you notice a few broken arrows off to the side.
-::They are neither rotten nor decayed, but are instead of good quality. Someone has recently come through here.
+:: At the end, there is a stairway that leads further down into the dungeon. Before heading down, you notice a few broken arrows off to the side.
+:: They are neither rotten nor decayed, but are instead of good quality. Someone has recently come through here.
 ::
-::You wonder if it was the missing person that had left them there. they are an archer or just fancy the bow.
+:: You wonder if it was the missing person that had left them there. They may be an archer or just fancy the bow.
 ::
-::Regardless, you feel like you are on the right track, and climb down the stairway.
+:: Regardless, you feel like you are on the right track, and climb down the stairway.
 [FLOOR_TWO_ENTER] 7 4 4
-::On the second floor, the air has become damp and heavy. A mix of algea and moss were scattered about the walls and floor. Streams of water droplets fell from the ceiling into small puddles below.
-::Here, about half the torches remained lit. The rest were either put out by the falling water or decayed into a black sludge.
+:: On the second floor, the air has become damp and heavy. A mix of algea and moss is scattered about the walls and floor. Streams of water droplets fall from the ceiling into small puddles below.
+:: Here, about half the torches remain lit. The rest were either put out by the falling water or have decayed into a black sludge.
 ::
-::You look around.
-::The walls are decorated with old moldy banners bearing an unfamiliar insignia. Perhaps an old creed?
-::The stone floor had a red carpet that continued down the straight passage forward; however, the carpet, much like everything else, has been heavily decayed to where it is
-::almost indistinguishable from rot.
-::You continue looking around and spot something glistening in a corner.
-::Upon closer inspection, it turns out to be a empty potion bottle. The initals "HL" are scratched on it. Perhaps it stands for heal? Or maybe it is the initals of its original owner?
+:: You look around.
+:: The walls are decorated with old moldy banners bearing an unfamiliar insignia. Perhaps an old creed?
+:: The stone floor has a red carpet that continues down the straight passage forward. However, the carpet -much like everything else- has been heavily decayed to where it is
+:: almost indistinguishable from rot.
+:: You continue looking around and spot something glistening in a corner.
+:: Upon closer inspection, it turns out to be a empty potion bottle. The initals "HL" are scratched on it. Does it stand for heal? Or maybe it's the initals of its original owner?
 ::
-::Regardless, the situation must have gotten rough if they had to use a health potion and leave the bottle behind.
-::You begin to pick up the pace and continue towards the passage leading to the next stairway.
+:: Regardless, the situation must have gotten rough if they had to use a potion and leave the bottle behind.
+:: You begin to pick up the pace and continue towards the passage leading to the next stairway.
 ::
-::Along the way, you see a figure ahead clad in wood. You can't quite see what it is underneath the wooden armor, nor do you have the time to guess.
-::It has caught sight of you and is now charging towards you.
+:: Along the way, you see a figure ahead clad in wood. You can't quite see what it is underneath the wooden armor, nor do you have the time to guess.
+:: It has caught sight of you and charges towards your position.
 [FLOOR_TWO]
---PLACEHOLDER--FLOOR_TWO--
+:: The wooden monster fumbles and falls over; creating a loud thud upon hitting the ground. You have slain it.
+:: 
+:: You take a moment to gander over its corpse. Upon doing so, you notice a piece of blue cloth on it. Torn yet vibrant, it must have come off someone or something recently.
+:: 
+:: Given that the cloth is on the beast, and the beast was still alive prior to coming here, you figure that the original owner of that cloth was in dire circumstances.
+:: If it belongs to your missing person then this is no moment to stand around and sightsee.
+:: 
+:: You rush to the next floor.
 [FLOOR_THREE_ENTER]
---PLACEHOLDER--FLOOR_THREE_ENTER--
+:: Down into the third floor, the moss and algae has now become thick fauna thus making traversal difficult. It is at this point only a few torches still remain lit.
+:: Even then, what little light gleams barely luminates the floor.
+::
+:: 
 [FLOOR_THREE]
 --PLACEHOLDER--FLOOR_THREE--
 [FLOOR_FOUR_ENTER]
