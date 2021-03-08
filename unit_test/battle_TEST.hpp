@@ -235,7 +235,7 @@
         Character* player = new Character();
         std::stringstream ss;
         Report(player, 0, ss);
-        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 0\n>>Number of items: 0\n>>Items in inventory: \n\n>>INVENTORY EMPTY\n");
+        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 0\n>>Number of items: 0\n>>Items in inventory: \n>>INVENTORY EMPTY\n");
         delete player;
     }
 
@@ -247,7 +247,7 @@
         player -> storeItem(new Dagger());
         std::stringstream ss;
         Report(player, 6, ss);
-        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 6\n>>Number of items: 3\n>>Items in inventory: \n\n\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n\n[2] Bow\nDamage: 3\nWeapon Type: Bow\n\n[3] Dagger\nDamage: 2\nWeapon Type: Dagger\n");
+        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 6\n>>Number of items: 3\n>>Items in inventory: \n\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n\n[2] Bow\nDamage: 3\nWeapon Type: Bow\n\n[3] Dagger\nDamage: 2\nWeapon Type: Dagger\n");
         delete player;
     }
 
@@ -259,7 +259,7 @@
         player -> storeItem(new Potion());
         std::stringstream ss;
         Report(player, 1, ss);
-        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 1\n>>Number of items: 3\n>>Items in inventory: \n\n\n[1] Potion\nUses: 3\n\n[2] Potion\nUses: 3\n\n[3] Potion\nUses: 3\n");
+        EXPECT_EQ(ss.str(), ">>Number of monsters killed: 1\n>>Number of items: 3\n>>Items in inventory: \n\n[1] Potion\nUses: 3\n\n[2] Potion\nUses: 3\n\n[3] Potion\nUses: 3\n");
         delete player;
     }
 
@@ -376,6 +376,7 @@
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
         player -> storeItem(new Potion());
+        player -> setStrength(50);
         bool gameOver = battle(player, enemy);
         EXPECT_EQ(0, enemy -> getHealth());
         EXPECT_EQ(false, gameOver);
@@ -385,10 +386,13 @@
 
     TEST(TestBattle, TestLoss)
     {
+        srand(time(0));
         Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
         player -> storeItem(new Potion());
+        player -> setSpeed(-5);
+        enemy -> setStrength(50);
         bool gameOver = battle(player, enemy);
         EXPECT_EQ(0, player -> getHealth());
         EXPECT_EQ(true, gameOver);
@@ -405,6 +409,7 @@ TEST(TestGameOver, Win)
     player -> setAttackType(new WarriorAttack());
     player -> setAttackString("Warrior");
     player -> storeItem(new Potion());
+    player -> setStrength(50);
     bool game = gameOver(player, enemy, 0);
     EXPECT_EQ(0, enemy -> getHealth());
     EXPECT_EQ(false, game);
@@ -414,11 +419,14 @@ TEST(TestGameOver, Win)
 
 TEST(TestGameOver, Loss)
 {
+    srand(time(0));
     Character* player = new Character();
     Monster* enemy = new Monster();
     player -> setAttackType(new WarriorAttack());
     player -> setAttackString("Warrior");
     player -> storeItem(new Potion());
+    player -> setSpeed(-5);
+    enemy -> setStrength(50);
     bool game = gameOver(player, enemy, 1);
     EXPECT_EQ(0, player -> getHealth());
     EXPECT_EQ(true, game);
