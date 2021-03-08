@@ -347,6 +347,7 @@
         NewItem(player, 0);
         player -> changeWeapon();
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bronze Sword\nDamage: 9\nWeapon Type: Sword");
+        delete player;
     }
 
     TEST(TestNewItem, T2Bow)
@@ -358,6 +359,7 @@
         NewItem(player, 1);
         player -> changeWeapon();
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bamboo Bow\nDamage: 13\nWeapon Type: Bow");
+        delete player;
     }
 
     TEST(TestNewItem, T3Dagger)
@@ -369,6 +371,7 @@
         NewItem(player, 2);
         player -> changeWeapon();
         EXPECT_EQ(player -> getWeapon() -> getDescription(), "Gold Dagger\nDamage: 17\nWeapon Type: Dagger");
+        delete player;
     }
 
 
@@ -401,35 +404,35 @@
 
 
 //TestGameOver Suite
-TEST(TestGameOver, Win)
-{
-    Character* player = new Character();
-    Monster* enemy = new Monster();
-    player -> setAttackType(new WarriorAttack());
-    player -> setAttackString("Warrior");
-    fillWeapons();
-    player -> storeItem(new Potion());
-    bool game = gameOver(player, enemy, 0);
-    EXPECT_EQ(0, enemy -> getHealth());
-    EXPECT_EQ(false, game);
-    delete player;
-    delete enemy;
-}
+    TEST(TestGameOver, Win)
+    {
+        Character* player = new Character();
+        Monster* enemy = new Monster();
+        player -> setAttackType(new WarriorAttack());
+        player -> setAttackString("Warrior");
+        fillWeapons();
+        player -> storeItem(new Potion());
+        bool game = gameOver(player, enemy, 0);
+        EXPECT_EQ(0, enemy -> getHealth());
+        EXPECT_EQ(false, game);
+        delete player;
+        delete enemy;
+    }
 
-TEST(TestGameOver, Loss)
-{
-    Character* player = new Character();
-    Monster* enemy = new Monster();
-    player -> setAttackType(new WarriorAttack());
-    player -> setAttackString("Warrior");
-    fillWeapons();
-    player -> storeItem(new Potion());
-    bool game = gameOver(player, enemy, 1);
-    EXPECT_EQ(0, player -> getHealth());
-    EXPECT_EQ(true, game);
-    delete player;
-    delete enemy;
-}
+    TEST(TestGameOver, Loss)
+    {
+        Character* player = new Character();
+        Monster* enemy = new Monster();
+        player -> setAttackType(new WarriorAttack());
+        player -> setAttackString("Warrior");
+        fillWeapons();
+        player -> storeItem(new Potion());
+        bool game = gameOver(player, enemy, 1);
+        EXPECT_EQ(0, player -> getHealth());
+        EXPECT_EQ(true, game);
+        delete player;
+        delete enemy;
+    }
 
 
 #endif

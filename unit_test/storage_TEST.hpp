@@ -12,7 +12,7 @@ TEST(StoreItem, Storing){
   // store.DisplayStorage(cout);
    store.DisplayStorage(ss);
    EXPECT_EQ(ss.str(),"\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n" );
-
+   delete weapon;
 }
 
 TEST(NoItem, storing){
@@ -28,6 +28,7 @@ TEST(ConsumableStore, checkingConsumable){
   Item* potion = new Potion();
   store.add_Item(potion);
   EXPECT_TRUE(store.getItem(1) == nullptr);
+  delete potion;
 }
 
 TEST(StorageLen, checkLength){
@@ -68,6 +69,9 @@ TEST(characterWithWeapon, moreDamage){
     player -> changeWeapon();
     player->attack(mob2);
     EXPECT_EQ(mob2->getHealth(), 88);
+    delete player;
+    delete mob1;
+    delete mob2;
 }
 
 TEST(charChangeWeapon, newWeapon){
@@ -76,6 +80,7 @@ TEST(charChangeWeapon, newWeapon){
    player -> changeWeapon(); 
    Weapon* weapon = player-> getWeapon();
    EXPECT_EQ(weapon-> getDescription(), "Sword\nDamage: 4\nWeapon Type: Sword");
+   delete player;
 }
 
 TEST(charCheckInven, UseCharToCheckStorage){
@@ -84,6 +89,7 @@ TEST(charCheckInven, UseCharToCheckStorage){
    std::stringstream ss;
    player -> ShowStorage(ss);
    EXPECT_EQ(ss.str(),"\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n" );
+   delete player;
 }
 
 TEST(PotionHeal, healPlayer){
@@ -94,6 +100,8 @@ TEST(PotionHeal, healPlayer){
    EXPECT_EQ(player -> getHealth(), 90);
    player-> PotionHeal();
    EXPECT_EQ(player->getHealth(), 100);
+   delete player;
+   delete mob;
 }
 
 TEST(PotionNumber, refill)
@@ -110,5 +118,6 @@ TEST(PotionNumber, refill)
    ss.str(std::string());
    player -> ShowStorage(ss);
    EXPECT_EQ(ss.str(), "\n[1] Potion\nUses: 3\n");
+   delete player;
 }
 #endif
