@@ -8,7 +8,6 @@ Character::Character(){
     strength = 10;
     defense = 5;
     speed = 5;
-    heals = 3;
     store = new Storage();
 }
 
@@ -93,24 +92,22 @@ void Character::changeWeapon(){
             unEquip();
         }
         store ->DisplayStorage(std::cout );
-        std::cout<< "Pick the number next to the item to get it or enter 0 to exit inventory: ";
+        std::cout<< ">>SELECT ITEM: ";
         int choose;
         bool a = false;
         do{
             cin >> choose;
-            if (choose == 0)
-                return;
             if(choose - 1 < store ->getLength() && choose > 0 ){ 
                 weapon =store ->getItem(choose);
                 if(weapon == nullptr){
-                    std::cout << "Invalid choice" << endl;
+                    std::cout << ">>ERROR: NOT A WEAPON" << endl;
                 }
                 else a = true;
             }
-            else std::cout << "Invalid choice, try again: " << endl;
+            else std::cout << ">>ERROR: INVALID OPTION: " << endl;
         }while(a != true);
     }
-    else std::cout << "No weapons in storage available" << endl;
+    else std::cout << ">>NO WEAPONS IN INVENTORY" << endl;
 }
 
 void Character::unEquip()
@@ -121,10 +118,14 @@ void Character::unEquip()
         weapon = nullptr;
     }
 }
-void Character::PotionHeal(Entity* person){
+bool Character::PotionHeal(){
    if(store -> consumInStorage())
-	store ->heal(person);
+   {
+       if(!store ->heal(this))
+           return false;
+   }
    else std::cout << "No potion in storage" << endl;
+    return true;
 }
 
 void Character::storeItem(Item* item){store ->add_Item(item);}

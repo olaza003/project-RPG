@@ -18,14 +18,7 @@ class Entity {
         bool dodge = false;
         bool dodgeAttempt = false;
     public:
-        void setHealth(int damage)
-        {
-            health -= damage;
-            if (health > 100)
-                health = 100;
-            if (health < 0)
-                health = 0;
-        }
+        virtual void setHealth(int) = 0;
         int getHealth() {return health;}
         void setStrength(int newStrength){strength = newStrength;}
         int getStrength(){return strength;}
@@ -60,13 +53,18 @@ class Monster : public Entity {
             defend = false;
             player->takeAttack( this->getStrength() );
         }
+        void setHealth(int damage)
+        {
+            health -= damage;
+            if (health < 0)
+                health = 0;
+        }
 };
 
 class Character : public Entity {
     private:
         int defense;
         int speed;
-        int heals;
         CharacterAttack* attackType = nullptr;
         string attackString;
         void takeAttack(int);
@@ -75,12 +73,18 @@ class Character : public Entity {
     public:
         Character();
         ~Character();
+        void setHealth(int damage)
+        {
+            health -= damage;
+            if (health > 100)
+                health = 100;
+            if (health < 0)
+                health = 0;
+        }
         void setDefense(int d){ defense = d; }
         int getDefense(){ return defense; }
         void setSpeed(int s){ speed = s; }
         int getSpeed(){ return speed; }
-        void setHeals(int heal){ heals = heal; }
-        int getHeals(){ return heals; }
         void setDodge(bool dod){ dodge = dod; }
         bool getDodge(){ return dodge; }
         void setAttackType(CharacterAttack*);
@@ -93,7 +97,7 @@ class Character : public Entity {
         void unEquip();//
         void storeItem(Item*);
         void ShowStorage(std::ostream& cout);
-        void PotionHeal(Entity*);
+        bool PotionHeal();
         void setWeapon(Weapon* w){ weapon = w; }
         Weapon* getWeapon(){return weapon;}
         Storage* getStorage(){return store;}

@@ -3,7 +3,6 @@
 #include <iostream>
 #include "../items/protoITEMS/storage.hpp"
 #include "../items/protoITEMS/protoITEMS.hpp"
-#include "../items/protoITEMS/protoITEMS.cpp"
 #include "../entities.hpp"
 TEST(StoreItem, Storing){
    Storage store;
@@ -12,7 +11,7 @@ TEST(StoreItem, Storing){
    std::stringstream ss;
   // store.DisplayStorage(cout);
    store.DisplayStorage(ss);
-   EXPECT_EQ(ss.str(),"[1]Name: Sword\n   Damage: 3\n   Weapon Type: Sword\n" );
+   EXPECT_EQ(ss.str(),"\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n" );
 
 }
 
@@ -21,7 +20,7 @@ TEST(NoItem, storing){
   std::stringstream ss;
  // store.DisplayStorage(cout);
   store.DisplayStorage(ss);
-  EXPECT_EQ(ss.str() ,"There's nothing in your inventory\n" );
+  EXPECT_EQ(ss.str() ,">>INVENTORY EMPTY\n" );
 }
 
 TEST(ConsumableStore, checkingConsumable){
@@ -52,7 +51,7 @@ TEST(removeItemFromStorage, checkNone){
   Weapon* weapon = store.getItem(1);
   std::stringstream ss;
   store.DisplayStorage(ss);
-  EXPECT_EQ(ss.str() ,"There's nothing in your inventory\n" );
+  EXPECT_EQ(ss.str() ,">>INVENTORY EMPTY\n" );
   delete weapon;
 }
 
@@ -68,7 +67,7 @@ TEST(characterWithWeapon, moreDamage){
     player -> storeItem(new Sword());
     player -> changeWeapon();
     player->attack(mob2);
-    EXPECT_EQ(mob2->getHealth(), 89);
+    EXPECT_EQ(mob2->getHealth(), 88);
 }
 
 TEST(charChangeWeapon, newWeapon){
@@ -76,7 +75,7 @@ TEST(charChangeWeapon, newWeapon){
    player -> storeItem(new Sword());
    player -> changeWeapon(); 
    Weapon* weapon = player-> getWeapon();
-   EXPECT_EQ(weapon-> getDescription(), "Name: Sword\n   Damage: 3\n   Weapon Type: Sword");
+   EXPECT_EQ(weapon-> getDescription(), "Sword\nDamage: 4\nWeapon Type: Sword");
 }
 
 TEST(charCheckInven, UseCharToCheckStorage){
@@ -84,7 +83,7 @@ TEST(charCheckInven, UseCharToCheckStorage){
    player -> storeItem(new Sword());
    std::stringstream ss;
    player -> ShowStorage(ss);
-   EXPECT_EQ(ss.str(),"[1]Name: Sword\n   Damage: 3\n   Weapon Type: Sword\n" );
+   EXPECT_EQ(ss.str(),"\n[1] Sword\nDamage: 4\nWeapon Type: Sword\n" );
 }
 
 TEST(PotionHeal, healPlayer){
@@ -93,7 +92,7 @@ TEST(PotionHeal, healPlayer){
    Monster* mob = new Monster();
    mob -> attack(player);
    EXPECT_EQ(player -> getHealth(), 85);
-   player-> PotionHeal(player);
+   player-> PotionHeal();
    EXPECT_EQ(player->getHealth(), 100);
 }
 #endif

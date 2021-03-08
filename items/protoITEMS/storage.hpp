@@ -32,7 +32,7 @@ class Storage
 	bool weaponInStorage();
         bool consumInStorage();
 	void DisplayStorage(std::ostream& cout);
-	void heal(Entity*);
+	bool heal(Entity*);
 	void displayPotion();
         int getLength(){ return storage_len;}
 };

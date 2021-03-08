@@ -42,7 +42,7 @@ class Potion: public Consumable{
     public:
         Potion(int use = 3, std::string nameInput = "Potion"): Consumable(use, nameInput) {}
         std::string getType() { return "Potion";}
-        std::string getDescription() {return "Name: " + name + "\n   uses: " + std::to_string(this ->getUses());}
+        std::string getDescription() {return name + "\nUses: " + std::to_string(this ->getUses());}
         void use(Entity*);
 };
 
@@ -50,19 +50,19 @@ class Potion: public Consumable{
 
 class Sword: public Weapon {
     public:
-        Sword(int Dmg = 3, std::string input = "Sword"): Weapon(Dmg, input) {}
+        Sword(int Dmg = 4, std::string input = "Sword"): Weapon(Dmg, input) {}
         std::string getType() {return "Sword";}
         std::string getDescription(){
-            return "Name: " + name + "\n   Damage: " + std::to_string(dmgVal) + "\n   Weapon Type: Sword";
+            return name + "\nDamage: " + std::to_string(dmgVal) + "\nWeapon Type: Sword";
         }
 };
 
 class Bow: public Weapon {
     public:
-        Bow(int Dmg = 4, std::string input = "Bow"): Weapon(Dmg, input) {}
+        Bow(int Dmg = 3, std::string input = "Bow"): Weapon(Dmg, input) {}
         std::string getType() {return "Bow";}
         std::string getDescription(){
-            return "Name: " + name + "\n   Damage: " + std::to_string(dmgVal) + "\n   Weapon Type: Bow";
+            return name + "\nDamage: " + std::to_string(dmgVal) + "\nWeapon Type: Bow";
         }
 };
 
@@ -71,7 +71,7 @@ class Dagger: public Weapon {
         Dagger(int Dmg = 2, std::string input = "Dagger"): Weapon(Dmg, input) {}
         std::string getType() {return "Dagger";}
         std::string getDescription(){
-            return "Name: " + name + "\n   Damage: " + std::to_string(dmgVal) + "\n   Weapon Type: Dagger";
+            return name + "\nDamage: " + std::to_string(dmgVal) + "\nWeapon Type: Dagger";
         }
 };
 
