@@ -2,7 +2,7 @@
 #include "story.hpp"
 #include "sequenceManager/seqMan.hpp"
 #include "items/protoITEMS/protoITEMS.hpp"
-#include "items/protoItems/protoENCHANT.hpp"
+#include "items/protoITEMS/protoENCHANT.hpp"
 
 void Setup();
 
