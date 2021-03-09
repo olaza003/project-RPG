@@ -37,7 +37,7 @@ Design Patterns:
         * $ make
         * $ ./main
         
-    OR
+    &nbsp;&nbsp;&nbsp;&nbsp;OR
 
     * Compile each file manually using g++:
         * $ g++ -std=c++11 -o main main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
