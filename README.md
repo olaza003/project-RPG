@@ -30,17 +30,21 @@ Design Patterns:
  > Screenshots of the input/output after running your application
 
  ## Installation/Usage
-Step 1: Download all files from executable folder <br>
-Step 2: Compile all cpp files and run them in a main executable
- * Install cmake in machine and run the following commands in your terminal inside of the executable directory:
-     * $ cmake . 
-     * $ make
-     * $ ./main <br>
-OR
- * Compile each file manually using g++:
-     * $ g++ -std=c++11 -o main main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
-     * $ ./main <br>
-Step 3: Play game
+* Step 1: Download all files from executable folder
+* Step 2: Compile all cpp files and run them in a main executable:
+
+*    Install cmake in machine and run the following commands in your terminal inside of the executable directory:
+     *    $ cmake . 
+     *    $ make
+     *    $ ./main
+        
+     OR
+
+*    Compile each file manually using g++:
+     *    $ g++ -std=c++11 -o main main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
+     *    $ ./main
+
+* Step 3: Play game
 
  ## Testing
 Our project was tested and validated using googletest to run unit tests on each function used and integration tests using multiple functions together, as well as extensive play testing using the ./main executable. Every test that was used is in the unit_test folder in the repository, as well as the early versions of some of these tests in the legacyTESTING folder. 
