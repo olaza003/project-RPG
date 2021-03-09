@@ -27,7 +27,24 @@ Design Patterns:
 * As for the Decorator Pattern, it will have a Weapon_Enchantment class under it that serves as the base decorator class. A FireEnchant class would derive from this base class to create a fire enchantment that wraps around the original weapon that is passed in. This weapon would have different types such as dagger, sword, and bow be used by unique characters. The enchantments wouldn't change the actual weapon itself, all of that code would stay the same. The enchantment would only deocrate the weapon and add to the damage value as well as the name. So a fiery sword still remains a sword, it just has more fire damage and is now called a Fiery Sword. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+Win:
+![wsc1](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.41.52%20PM.png)
+![wsc2](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.42.10%20PM.png)
+![wsc3](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.42.23%20PM.png)
+![wsc4](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.42.36%20PM.png)
+![wsc5](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.42.48%20PM.png)
+![wsc6](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.42.55%20PM.png)
+![wsc7](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.43.07%20PM.png)
+![wsc8](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.43.17%20PM.png)
+![wsc9](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.43.30%20PM.png)
+Loss:
+![lsc1](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.45.29%20PM.png)
+![lsc2](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.45.37%20PM.png)
+![lsc3](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.45.45%20PM.png)
+![lsc4](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.45.54%20PM.png)
+![lsc5](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.04%20PM.png)
+![lsc6](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.14%20PM.png)
+![lsc7](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.21%20PM.png)
 
  ## Installation/Usage
 * Step 1: Download all files from executable folder
