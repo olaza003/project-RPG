@@ -35,13 +35,13 @@ Design Patterns:
     * Install cmake in machine and run the following commands in your terminal inside of the executable directory:
         * $ cmake . 
         * $ make
-        * $ ./main
+        * $ ./exe
         
     &nbsp;&nbsp;&nbsp;&nbsp;OR
 
     * Compile each file manually using g++:
-        * $ g++ -std=c++11 -o main main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
-        * $ ./main
+        * $ g++ -std=c++11 -o exe main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
+        * $ ./exe
 
 * Step 3: Play game
 
