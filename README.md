@@ -9,7 +9,7 @@
 * Tools we'll be using:
   * C++ - The language we are the most familiar with.
   
-* Input: Text Commands (“attack”, “check bag”, “run”)
+* Input: The player will be prompted with a series of options that they will chose by entering characters ("a", "b", ...) or numbers depending on the situation.
 * Output: Results of each command and battle
   
 Design Patterns: 
