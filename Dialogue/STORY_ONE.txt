@@ -1,5 +1,12 @@
-[NAME] 1
-DUNGEON CRAWLER(TM)
+[NAME]
+
+
+------------------DUNGEON CRAWLER--------------------
+                 ---CREATED BY:---
+      Orlean Lazaro, Ryan DeMello, Rudy Mendoza
+-----------------------------------------------------
+
+
 [INTRODUCTION] 9 1 1 1
 :: A voice speaks to you.
 :: "A letter came in today. 'U R G E N T' written on it in big, bold, red letters. It's another search request. This makes it the fifth one today.
@@ -62,13 +69,34 @@ DUNGEON CRAWLER(TM)
 :: If it belongs to your missing person then this is no moment to stand around and sightsee.
 :: 
 :: You rush to the next floor.
-[FLOOR_THREE_ENTER]
-:: Down into the third floor, the moss and algae has now become thick fauna thus making traversal difficult. It is at this point only a few torches still remain lit.
-:: Even then, what little light gleams barely luminates the floor.
+[FLOOR_THREE_ENTER] 4 9 5
+:: Down into the third floor, the moss and algae has now become thick fauna thus making traversal difficult. At this point, only a few torches still remain lit.
+:: Even then, what little light there was gleamed no differently than a candle. You grab one of these torches as it was better than creeping through the dark.
 ::
+:: You continued on as fast as you could - walking with quick and short steps whilst remaining vigilant.
+:: As you creep forward, you see a few items on the ground ahead. They seem to be an assortment of items, a poach, and blood-stained cloths. Possibly torn.
+:: This is by no means a good sign. Not by a longshot.
 :: 
-[FLOOR_THREE]
---PLACEHOLDER--FLOOR_THREE--
+:: There's no time to look over the items. Whoever it may be, missing person or not, they are in dire need of help.
+:: 
+:: You hear a sound off in the distance. It's coming from further down the dungeon. An optimistic thought goes through your mind hoping that this sound is from another person,
+:: but it could very easily be a monster. Whatever it may be, you have to go forward and investigate.
+::
+:: Weapon in one hand and a torch in the other, you run down the passage towards the sound.
+:: As you run down the passage way which is conviently towards the direction of the next stairway, you see a figure hunched over in the middle of the path. Its back faces you.
+:: Covered in mud and with thorns protruding from its back, it eats away at what seems to be a human carcass. Too invested in its meal to have noticed you. The sounds of bone crunching fill the air.
+:: 
+:: It is at this moment, you attack while it's distracted. Or at least, that is what you would have done, but the moment you took another step, the beast whirled around bearing its teeth.
+:: So much for a surprise attack.
+[FLOOR_THREE] 5 3
+:: The monster let out a gargled howl before falling over. Now the only sounds throughout the floor are from water droplets and your heavy breathing. Just another day on the job.
+:: You looked over to what the beast had been eating earlier. It was a person. Alot of parts were gone but enough of the face was left that you were able to recognize them as the person
+:: you were looking for. Not much to bring back now. A necklace layed next to them so you reach down to retrieve it. A tag was attached that bore their identity.
+:: 
+:: Normally, in cases like these, this is all that's brought back.
+:: As tragic as it is, the job is done. No point in staying here any longer. The search target came with a party, but you were not tasked with finding them.
+::
+:: You turn around and make your way back out.
 [FLOOR_FOUR_ENTER]
 --PLACEHOLDER--FLOOR_FOUR_ENTER--
 [FLOOR_FOUR]
@@ -78,5 +106,19 @@ DUNGEON CRAWLER(TM)
 [FLOOR_FIVE]
 --PLACEHOLDER--FLOOR_FIVE--
 [EPILOGUE]
---PLACEHOLDER--EPILOGUE--
+:: The journey back always felt faster than on the way there, and there was little thought about sight-seeing. Exhausted, you just wanted to get back.
+:: 
+:: You arrive back at the guild and walk over to the reception. The same dispatch from the beginning looks up to greet you. They take a quick look at your face.
+:: 
+:: "Dead again?" they ask casually. You don't respond. They let out a sign while grabbing a form from behind them.
+:: "I don't know why I expected better this time. Not like we have gotten any good news lately from any other of these request."
+:: They extend their hand out as they write something on the form. You give them the tag.
+:: 
+:: "Several more search request came in while you were away. Some of those are even for the ones we sent to handle previous search request."
+:: They take another glance at you and your blood-soaked attire. "I'll give you the job now, but you can worry about it tomorrow morning. Get yourself cleaned up first."
+:: 
+:: You grab the request and turn around to leave. As you reach the door, you hear the dispatch say:
+:: "Don't die out there. We don't have the funding to let you do that."
+::
+:: Right. Just another day on the job.
 [END]

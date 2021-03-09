@@ -78,7 +78,12 @@ void closeGameHandle(){
 }
 
 void quick_intro(Character* player){
-    dia.file("Dialogue/STORY_ONE.txt"); dia.sequence("[INTRODUCTION]");
+    dia.file("Dialogue/STORY_ONE.txt"); 
+    
+    dia.sequence("[NAME]");
+    dia.OUT();
+    
+    dia.sequence("[INTRODUCTION]");
     dia.OUT(); //ask for player name
     cout << ">>ENTER CHARACTER NAME: "; getline(cin, CharacterName);
 
