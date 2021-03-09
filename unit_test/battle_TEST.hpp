@@ -119,7 +119,7 @@
         Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
-        srand(2);
+        srand(3);
         dodge(player);
         enemy -> attack(player);
         EXPECT_EQ(90, player -> getHealth());
@@ -205,6 +205,7 @@
 //TestEnemyAction Suite
     TEST(TestEnemyAction, Defend)
     {
+        srand(4);
         Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
@@ -272,7 +273,7 @@
         menuOp = read(iss);
         CharacterCreation(player);
         Upgrade(player);
-        EXPECT_EQ(player -> getStrength(), 13);
+        EXPECT_EQ(player -> getStrength(), 15);
         delete player;
     }
 
@@ -283,7 +284,7 @@
         menuOp = read(iss);
         CharacterCreation(player);
         Upgrade(player);
-        EXPECT_EQ(player -> getDefense(), 8);
+        EXPECT_EQ(player -> getDefense(), 10);
         delete player;
     }
 
@@ -294,7 +295,7 @@
         menuOp = read(iss);
         CharacterCreation(player);
         Upgrade(player);
-        EXPECT_EQ(player -> getSpeed(), 8);
+        EXPECT_EQ(player -> getSpeed(), 10);
         delete player;
     }
 
@@ -342,7 +343,7 @@
         player -> setAttackString("Warrior");
         NewItem(player, 0);
         player -> changeWeapon();
-        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bronze Sword\nDamage: 9\nWeapon Type: Sword");
+        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bronze Sword\nDamage: 7\nWeapon Type: Sword");
         delete player;
     }
 
@@ -353,7 +354,7 @@
         player -> setAttackString("Knight");
         NewItem(player, 1);
         player -> changeWeapon();
-        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bamboo Bow\nDamage: 13\nWeapon Type: Bow");
+        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Bamboo Bow\nDamage: 9\nWeapon Type: Bow");
         delete player;
     }
 
@@ -364,7 +365,7 @@
         player -> setAttackString("Hunter");
         NewItem(player, 2);
         player -> changeWeapon();
-        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Gold Dagger\nDamage: 17\nWeapon Type: Dagger");
+        EXPECT_EQ(player -> getWeapon() -> getDescription(), "Gold Dagger\nDamage: 11\nWeapon Type: Dagger");
         delete player;
     }
 

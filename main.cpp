@@ -54,20 +54,20 @@ int main() {
 
 void Setup(){
     mobs.push_back(new Monster());
-    mobs.push_back(new Monster());
-    mobs.push_back(new Monster());
-    mobs.push_back(new Monster());
-    mobs.push_back(new Monster());
+    mobs.push_back(new Monster(130, 20));
+    mobs.push_back(new Monster(150, 25));
+    //mobs.push_back(new Monster());
+    //mobs.push_back(new Monster());
     currSeqDia.push_back("[FLOOR_ONE]");
     currSeqDia.push_back("[FLOOR_TWO]");
     currSeqDia.push_back("[FLOOR_THREE]");
-    currSeqDia.push_back("[FLOOR_FOUR]");
-    currSeqDia.push_back("[FLOOR_FIVE]");
+    //currSeqDia.push_back("[FLOOR_FOUR]");
+    //currSeqDia.push_back("[FLOOR_FIVE]");
     preFightDia.push_back("[FLOOR_ONE_ENTER]");
     preFightDia.push_back("[FLOOR_TWO_ENTER]");
     preFightDia.push_back("[FLOOR_THREE_ENTER]");
-    preFightDia.push_back("[FLOOR_FOUR_ENTER]");
-    preFightDia.push_back("[FLOOR_FIVE_ENTER]");
+    //preFightDia.push_back("[FLOOR_FOUR_ENTER]");
+    //preFightDia.push_back("[FLOOR_FIVE_ENTER]");
 
 }
 

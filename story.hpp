@@ -69,8 +69,8 @@ void defend(Entity* e)
 void dodge(Character* p)
 {
     p -> setDodgeAttempt(true);
-    int rng = rand() % 20 + 1;
-    if (p -> getSpeed() + 5 >= rng)
+    int rng = rand() % 30 + 1;
+    if (p -> getSpeed() + 10 >= rng)
         p -> setDodge(true);
     else
         p -> setDodge(false);
@@ -89,7 +89,7 @@ void heal(Character* p)
 void enemyAction(Character* p, Monster* e)
 {
     int rng = rand() % 10 + 1;
-    if (rng <= 7)
+    if (rng <= 8)
     {
         cout << ">>ENEMY ATTACKED!" << endl;
         e -> attack(p);
@@ -177,17 +177,17 @@ void Upgrade(Character* p)
     cout << endl;
     if (p -> getAttackString() == "Warrior")
     {
-        p -> setStrength(p -> getStrength() + 3);
+        p -> setStrength(p -> getStrength() + 5);
         cout << "NEW STRENGTH: " << p -> getStrength() << endl;
     }
     else if (p -> getAttackString() == "Knight")
     {
-        p -> setDefense(p -> getDefense() + 3);
+        p -> setDefense(p -> getDefense() + 5);
         cout << "NEW DEFENSE: " << p -> getDefense() << endl;
     }
     else if (p -> getAttackString() == "Hunter")
     {
-        p -> setSpeed(p -> getSpeed() + 3);
+        p -> setSpeed(p -> getSpeed() + 5);
         cout << "NEW SPEED: " << p -> getSpeed() << endl;
     }
 }
@@ -219,13 +219,13 @@ void NewItem(Character* p, int floor)
     int val = 0;
     Item* hold;
     if (p -> getAttackString() == "Warrior")
-        hold = new Sword(9 + 5*floor, tierTypeName.at(floor));
+        hold = new Sword(7 + 3*floor, tierTypeName.at(floor));
 
     else if (p -> getAttackString() == "Knight")
-        hold = new Bow(8 + 5*floor, tierTypeName.at(floor + 3));
+        hold = new Bow(6 + 3*floor, tierTypeName.at(floor + 3));
 
     else if (p -> getAttackString() == "Hunter")
-        hold = new Dagger(7 + 5*floor, tierTypeName.at(floor + 6));
+        hold = new Dagger(5 + 3*floor, tierTypeName.at(floor + 6));
 
     p -> getStorage() -> add_Item(hold);
     cout << hold -> getDescription() << endl;
