@@ -116,10 +116,10 @@
 
     TEST(TestDodge, DodgeFail)
     {
-        Character* player = new Character();
+	Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());
-        srand(3);
+        player -> setSpeed(-10);
         dodge(player);
         enemy -> attack(player);
         EXPECT_EQ(90, player -> getHealth());
@@ -205,7 +205,7 @@
 //TestEnemyAction Suite
     TEST(TestEnemyAction, Defend)
     {
-        srand(4);
+	srand(996);
         Character* player = new Character();
         Monster* enemy = new Monster();
         player -> setAttackType(new WarriorAttack());

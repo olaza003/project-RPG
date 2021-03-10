@@ -89,14 +89,15 @@ void heal(Character* p)
 void enemyAction(Character* p, Monster* e)
 {
     int rng = rand() % 10 + 1;
-    if (rng <= 8)
+    cout << "RNG: " << rng << endl;
+    if (rng <= 2)
     {
-        cout << ">>ENEMY ATTACKED!" << endl;
-        e -> attack(p);
+        defend(e);
     }
     else
     {
-        defend(e);
+	cout << ">>ENEMY ATTACKED!" << endl;
+	e -> attack(p);
     }
         
 }
