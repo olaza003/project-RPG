@@ -47,9 +47,12 @@ Loss:
 ![lsc7](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.21%20PM.png)
 
  ## Installation/Usage
-* Step 1: Download all files from executable folder
-* Step 2: Compile all cpp files and run them in a main executable:
-    * Install cmake in machine and run the following commands in your terminal inside of the executable directory:
+* Step 1: Download "DungeonCrawler.zip" and unzip the file
+* Step 2: Open "DungeonCrawler" directroy in terminal using cd \<path>/DungeonCrawler
+    * example command if you download folder to desktop: 
+        * $ cd Desktop/DungeonCrawler
+* Step 3: Compile all cpp files and run them in an executable inside of the "DungeonCrawler" directory:
+    * Install cmake in machine and run the following commands in your terminal:
         * $ cmake . 
         * $ make
         * $ ./exe
@@ -60,7 +63,7 @@ Loss:
         * $ g++ -std=c++11 -o exe main.cpp entities.cpp sequenceManager/seqMan.cpp items/protoITEMS/storage.cpp items/protoITEMS/protoITEMS.cpp
         * $ ./exe
 
-* Step 3: Play game
+* Step 4: Play game
 
  ## Testing
 Our project was tested and validated using googletest to run unit tests on each function used and integration tests using multiple functions together, as well as extensive play testing using the ./main executable. Every test that was used is in the unit_test folder in the repository, as well as the early versions of some of these tests in the legacyTESTING folder. 
