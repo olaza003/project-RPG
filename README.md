@@ -25,7 +25,7 @@ Design Patterns:
 * To further highlight the Strategy Pattern of this diagram, the character class under the abstract class *Entity* will inherit its virtual function. It also has aggregation towards items and characterAttack. CharacterAttack will have to be able to use CharacterCreation to create different types of character for the game. In which we see WarriorAttack, KnightAttack, HunterAttack, etc. have their own attack function.
  
 * As for the Decorator Pattern, it will have a Weapon_Enchantment class under it that serves as the base decorator class. A FireEnchant class would derive from this base class to create a fire enchantment that wraps around the original weapon that is passed in. This weapon would have different types such as dagger, sword, and bow be used by unique characters. The enchantments wouldn't change the actual weapon itself, all of that code would stay the same. The enchantment would only deocrate the weapon and add to the damage value as well as the name. So a fiery sword still remains a sword, it just has more fire damage and is now called a Fiery Sword. 
- 
+<!-- 
  ## Screenshots
 Win:
 ![wsc1](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.41.52%20PM.png)
@@ -45,7 +45,7 @@ Loss:
 ![lsc5](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.04%20PM.png)
 ![lsc6](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.14%20PM.png)
 ![lsc7](https://github.com/cs100/final-project-olaza003-rdeme005-rmend048/blob/master/images/Project%20Screenshots/Screen%20Shot%202021-03-09%20at%202.46.21%20PM.png)
-
+-->
  ## Installation/Usage
 * Step 1: Download "DungeonCrawler.zip" and unzip the file
 * Step 2: Open "DungeonCrawler" directroy in terminal using cd \<path>/DungeonCrawler
